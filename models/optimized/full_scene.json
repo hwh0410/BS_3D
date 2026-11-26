@@ -1,0 +1,34 @@
+{
+  "source_sha256": "3591355fc311096333078001acec6d5bf7a99ef8e39711f54ee15771dcaf28c2",
+  "source_faces": 4621182,
+  "source_bounds": [
+    [
+      -28.242809295654297,
+      -12.2216157913208,
+      21.799999237060547
+    ],
+    [
+      3.757190704345703,
+      -3.7209413051605225,
+      44.0
+    ]
+  ],
+  "grid_step_source_units": 0.035,
+  "preview_faces": 218880,
+  "preview_vertices": 91286,
+  "preview_bounds": [
+    [
+      -28.242809295654297,
+      -12.2216157913208,
+      21.799999237060547
+    ],
+    [
+      3.747190475463867,
+      -3.716615676879883,
+      43.98999786376953
+    ]
+  ],
+  "preview_bytes": 3722788,
+  "method": "vertex grid clustering; visual preview, not engineering verification",
+  "source_units": "assumed metres; Y up provisional"
+}
