@@ -1,0 +1,52 @@
+name: Compress color assets losslessly
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/compress-color.yml'
+      - 'models/color/manifest.json'
+permissions:
+  contents: write
+  pages: write
+concurrency:
+  group: bs-color-gzip
+  cancel-in-progress: false
+jobs:
+  compress:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compress and verify original GLBs
+        run: |
+          python - <<'PY'
+          import gzip, hashlib, json
+          from pathlib import Path
+          root=Path('models/color')
+          manifest=json.loads((root/'manifest.json').read_text())
+          out=Path('models/color-gzip');out.mkdir(exist_ok=True)
+          records=[]
+          for a in manifest['assemblies']:
+              b=(root/a['file']).read_bytes()
+              assert len(b)==a['bytes'] and hashlib.sha256(b).hexdigest()==a['sha256']
+              c=gzip.compress(b,compresslevel=6,mtime=0)
+              assert gzip.decompress(c)==b
+              (out/(a['file']+'.gz')).write_bytes(c)
+              records.append({'file':a['file'],'bytes':len(c),'sha256':a['sha256']})
+          (out/'manifest.json').write_text(json.dumps({'source_sha256':manifest['source_sha256'],'assets':records,'bytes':sum(a['bytes'] for a in records)},indent=2))
+          PY
+      - name: Commit compressed assets
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add models/color-gzip/
+          if ! git diff --cached --quiet; then
+            git commit -m 'Publish byte-exact gzip color assets'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+      - name: Request Pages rebuild
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api --method POST "repos/${GITHUB_REPOSITORY}/pages/builds"
+        continue-on-error: true
