@@ -1,0 +1,24 @@
+{
+  "source_sha256": "3591355fc311096333078001acec6d5bf7a99ef8e39711f54ee15771dcaf28c2",
+  "source_faces": 4621182,
+  "output_faces": 4621182,
+  "unique_exact_vertices": 2267185,
+  "bounds": [
+    [
+      -28.242809295654297,
+      -12.2216157913208,
+      21.799999237060547
+    ],
+    [
+      3.757190704345703,
+      -3.7209413051605225,
+      44.0
+    ]
+  ],
+  "bytes": 82661320,
+  "position_bits_and_triangle_order_verified": true,
+  "geometry_loss": false,
+  "normals": "derived from triangles at render time; source STL normals not encoded",
+  "materials": "neutral; STL has no standard material hierarchy",
+  "units": "assumed metres; Y up"
+}
