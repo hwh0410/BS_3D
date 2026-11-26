@@ -1,0 +1,54 @@
+name: Build lossless color transport
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/build-color-gzip.yml'
+permissions:
+  contents: write
+  pages: write
+concurrency:
+  group: color-gzip
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compress and verify exact original bytes
+        run: |
+          python - <<'PY'
+          import gzip, hashlib, json
+          from pathlib import Path
+          src=Path('models/color')
+          out=Path('models/color-gzip')
+          out.mkdir(parents=True,exist_ok=True)
+          m=json.loads((src/'manifest.json').read_text())
+          assert len(m['assemblies'])==50 and m['triangles']==4621182
+          total=0
+          for a in m['assemblies']:
+              b=(src/a['file']).read_bytes()
+              assert len(b)==a['bytes'] and hashlib.sha256(b).hexdigest()==a['sha256']
+              c=gzip.compress(b,compresslevel=6,mtime=0)
+              assert gzip.decompress(c)==b
+              (out/(a['file']+'.gz')).write_bytes(c)
+              total+=len(c)
+          (out/'manifest.json').write_text(json.dumps({'source_sha256':m['source_sha256'],'assemblies':50,'compressed_bytes':total,'original_bytes':sum(a['bytes'] for a in m['assemblies']),'byte_exact':True},indent=2))
+          print('Compressed total:',total)
+          PY
+      - name: Commit lossless transport assets
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add models/color-gzip/
+          if ! git diff --cached --quiet; then
+            git commit -m 'Publish byte-exact gzip color assets'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+      - name: Request Pages rebuild
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api --method POST "repos/${GITHUB_REPOSITORY}/pages/builds"
+        continue-on-error: true
