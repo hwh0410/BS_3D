@@ -1,0 +1,784 @@
+{
+  "version": "0.5",
+  "source_date": "2025-10-12",
+  "notice": "公開版只列工程資料；不是採購或施工依據。原表未列尺寸不補值。候選模型與正式設備編號未校核。",
+  "equipment": [
+    {
+      "id": "G-1002A/B",
+      "name": "溫水泵",
+      "category": "泵",
+      "spec": "立式多段離心；3 HP；12 m³/h；揚程25 m；口徑50 mm；SUS304",
+      "source": {
+        "sheet": "泵、風機、熱交換器",
+        "row": 7
+      }
+    },
+    {
+      "id": "G-1003A/B",
+      "name": "沼液井泵",
+      "category": "泵",
+      "spec": "直接式渦卷；1 HP；7.86 m³/h；揚程16 m；口徑40 mm",
+      "source": {
+        "sheet": "泵、風機、熱交換器",
+        "row": 8
+      }
+    },
+    {
+      "id": "G-1004A/B",
+      "name": "沼液噴淋泵",
+      "category": "泵",
+      "spec": "立式多段離心；3 HP；6 m³/h；揚程40 m；口徑40 mm；316",
+      "source": {
+        "sheet": "泵、風機、熱交換器",
+        "row": 9
+      }
+    },
+    {
+      "id": "G-1005A/B",
+      "name": "熱水泵",
+      "category": "泵",
+      "spec": "立式多段離心；3 HP；12 m³/h；揚程25 m；口徑50 mm；SUS304",
+      "source": {
+        "sheet": "泵、風機、熱交換器",
+        "row": 10
+      }
+    },
+    {
+      "id": "G-1006A/B",
+      "name": "沼液循環泵",
+      "category": "泵",
+      "spec": "直接式渦卷；3 HP；18 m³/h；揚程21 m；口徑50 mm",
+      "source": {
+        "sheet": "泵、風機、熱交換器",
+        "row": 11
+      }
+    },
+    {
+      "id": "G-1007A/B",
+      "name": "脫硫循環泵",
+      "category": "泵",
+      "spec": "包含於沼氣發電系統；尺寸未列",
+      "source": {
+        "sheet": "泵、風機、熱交換器",
+        "row": 12
+      }
+    },
+    {
+      "id": "G-1008",
+      "name": "自來水槽泵",
+      "category": "泵",
+      "spec": "立式多段離心；1 HP；5 m³/h；揚程20 m；ANSI #150 1-1/4 吋",
+      "source": {
+        "sheet": "泵、風機、熱交換器",
+        "row": 13
+      }
+    },
+    {
+      "id": "G-1009A/B",
+      "name": "冷卻水泵",
+      "category": "泵",
+      "spec": "2 HP；19.5 m³/h（原表）；與冷卻水塔規格待核對",
+      "source": {
+        "sheet": "泵、風機、熱交換器",
+        "row": 14
+      }
+    },
+    {
+      "id": "B-1002",
+      "name": "沼氣風機",
+      "category": "風機",
+      "spec": "包含於發電系統；尺寸未列",
+      "source": {
+        "sheet": "泵、風機、熱交換器",
+        "row": 16
+      }
+    },
+    {
+      "id": "B-1003A",
+      "name": "抽氣風機（變頻）",
+      "category": "風機",
+      "spec": "3.18 m³/hr（原表）；6.5 kPa；口徑150 mm；流量單位待核對",
+      "source": {
+        "sheet": "泵、風機、熱交換器",
+        "row": 17
+      }
+    },
+    {
+      "id": "B-1003B",
+      "name": "抽氣風機",
+      "category": "風機",
+      "spec": "3.18 m³/hr（原表）；6.5 kPa；口徑150 mm；流量單位待核對",
+      "source": {
+        "sheet": "泵、風機、熱交換器",
+        "row": 18
+      }
+    },
+    {
+      "id": "B-1004A/B",
+      "name": "通風排氣機",
+      "category": "風機",
+      "spec": "5.1 m³/hr（原表）；6.5 kPa；口徑200 mm；流量單位待核對",
+      "source": {
+        "sheet": "泵、風機、熱交換器",
+        "row": 19
+      }
+    },
+    {
+      "id": "E-1001",
+      "name": "溫水煙氣加熱器",
+      "category": "熱交換器",
+      "spec": "包含於發電系統；尺寸未列",
+      "source": {
+        "sheet": "泵、風機、熱交換器",
+        "row": 21
+      }
+    },
+    {
+      "id": "E-1002",
+      "name": "溫水冷卻器",
+      "category": "熱交換器",
+      "spec": "BEM；350 × 800 mm（殼側內徑350 mm、管長800 mm，非完整外廓）；5.7 m²；SUS304",
+      "source": {
+        "sheet": "泵、風機、熱交換器",
+        "row": 22
+      }
+    },
+    {
+      "id": "E-1003",
+      "name": "沼液加熱器",
+      "category": "熱交換器",
+      "spec": "BEM；350 × 800 mm（殼側內徑350 mm、管長800 mm，非完整外廓）；5.7 m²；SUS304",
+      "source": {
+        "sheet": "泵、風機、熱交換器",
+        "row": 24
+      }
+    },
+    {
+      "id": "E-1005",
+      "name": "熱水電加熱器",
+      "category": "加熱器",
+      "spec": "25–95 °C；10 kW；220 V 三相60 Hz；法蘭4吋150#",
+      "source": {
+        "sheet": "泵、風機、熱交換器",
+        "row": 26
+      }
+    },
+    {
+      "id": "UNASSIGNED-GEN",
+      "name": "沼氣發電機",
+      "category": "發電機",
+      "spec": "原表未列規格與編號；暫用資料庫識別碼",
+      "source": {
+        "sheet": "泵、風機、熱交換器",
+        "row": 27
+      }
+    },
+    {
+      "id": "Z-1001",
+      "name": "火炬",
+      "category": "火炬",
+      "spec": "燃燒頭高約2.2 m；外罩直徑約900 mm；立柱高約2 m；底板約600 × 600 mm",
+      "source": {
+        "sheet": "火炬",
+        "row": 7
+      }
+    },
+    {
+      "id": "BD-1001",
+      "name": "沼氣袋",
+      "category": "靜設備",
+      "spec": "直徑2500 mm；長10000 mm；厚1.8 mm；35 °C",
+      "source": {
+        "sheet": "靜設備",
+        "row": 7
+      },
+      "dimensions_mm": {
+        "diameter": 2500,
+        "length": 10000
+      }
+    },
+    {
+      "id": "UNASSIGNED-SPRAY",
+      "name": "沼液噴頭",
+      "category": "靜設備",
+      "spec": "原表未列尺寸及編號；暫用資料庫識別碼",
+      "source": {
+        "sheet": "靜設備",
+        "row": 8
+      }
+    },
+    {
+      "id": "Z-1004",
+      "name": "冷卻水塔系統",
+      "category": "靜設備",
+      "spec": "圓型；25 RT；循環水量211 LPM；泵2 HP",
+      "source": {
+        "sheet": "靜設備",
+        "row": 9
+      }
+    },
+    {
+      "id": "D-1002",
+      "name": "溫水槽",
+      "category": "靜設備",
+      "spec": "工作容積原表2噸；SUS304；外廓尺寸未列",
+      "source": {
+        "sheet": "靜設備",
+        "row": 10
+      }
+    },
+    {
+      "id": "D-1003",
+      "name": "沼液井",
+      "category": "靜設備",
+      "spec": "PE 1.5T；直徑1230 mm；高1690 mm",
+      "source": {
+        "sheet": "靜設備",
+        "row": 11
+      },
+      "dimensions_mm": {
+        "diameter": 1230,
+        "height": 1690
+      }
+    },
+    {
+      "id": "D-1004A/B",
+      "name": "沼液槽",
+      "category": "靜設備",
+      "spec": "PE 50T；直徑3100 mm；高7456 mm",
+      "source": {
+        "sheet": "靜設備",
+        "row": 12
+      },
+      "dimensions_mm": {
+        "diameter": 3100,
+        "height": 7456
+      }
+    },
+    {
+      "id": "D-1005",
+      "name": "熱水槽",
+      "category": "靜設備",
+      "spec": "工作容積原表1噸；SUS304；外廓尺寸未列",
+      "source": {
+        "sheet": "靜設備",
+        "row": 13
+      }
+    },
+    {
+      "id": "D-1006",
+      "name": "自來水槽",
+      "category": "靜設備",
+      "spec": "PE 5T；直徑1900 mm；高2240 mm",
+      "source": {
+        "sheet": "靜設備",
+        "row": 14
+      },
+      "dimensions_mm": {
+        "diameter": 1900,
+        "height": 2240
+      }
+    },
+    {
+      "id": "R-1001A/B/C",
+      "name": "厭氧發酵槽",
+      "category": "靜設備",
+      "spec": "原表變更為貨櫃式反應器；最新使用者指定4槽，正式編號待核對",
+      "source": {
+        "sheet": "靜設備",
+        "row": 15
+      }
+    },
+    {
+      "id": "R-1001A/B/C-door",
+      "name": "厭氧發酵槽門",
+      "category": "靜設備",
+      "spec": "原表本項刪除；保留歷史紀錄，不另建設備",
+      "source": {
+        "sheet": "靜設備",
+        "row": 16
+      },
+      "status": "removed_from_original_list"
+    },
+    {
+      "id": "PG-1021",
+      "name": "壓力錶",
+      "category": "儀表／安全設備",
+      "spec": "0–60 kPaG",
+      "source": {
+        "sheet": "待確認-儀表、安全閥",
+        "row": 7
+      }
+    },
+    {
+      "id": "PG-1023",
+      "name": "壓力錶",
+      "category": "儀表／安全設備",
+      "spec": "0–0.6 MPaG",
+      "source": {
+        "sheet": "待確認-儀表、安全閥",
+        "row": 8
+      }
+    },
+    {
+      "id": "PG-1024",
+      "name": "壓力錶",
+      "category": "儀表／安全設備",
+      "spec": "0–60 kPaG",
+      "source": {
+        "sheet": "待確認-儀表、安全閥",
+        "row": 9
+      }
+    },
+    {
+      "id": "PG-1052",
+      "name": "壓力錶",
+      "category": "儀表／安全設備",
+      "spec": "0–0.6 MPaG",
+      "source": {
+        "sheet": "待確認-儀表、安全閥",
+        "row": 10
+      }
+    },
+    {
+      "id": "PG-1053",
+      "name": "壓力錶",
+      "category": "儀表／安全設備",
+      "spec": "0–0.6 MPaG",
+      "source": {
+        "sheet": "待確認-儀表、安全閥",
+        "row": 11
+      }
+    },
+    {
+      "id": "PG-1061",
+      "name": "壓力錶",
+      "category": "儀表／安全設備",
+      "spec": "0–0.6 MPaG",
+      "source": {
+        "sheet": "待確認-儀表、安全閥",
+        "row": 12
+      }
+    },
+    {
+      "id": "PG-1062",
+      "name": "壓力錶",
+      "category": "儀表／安全設備",
+      "spec": "0–0.6 MPaG",
+      "source": {
+        "sheet": "待確認-儀表、安全閥",
+        "row": 13
+      }
+    },
+    {
+      "id": "PG-1071",
+      "name": "壓力錶",
+      "category": "儀表／安全設備",
+      "spec": "0–0.6 MPaG",
+      "source": {
+        "sheet": "待確認-儀表、安全閥",
+        "row": 14
+      }
+    },
+    {
+      "id": "PG-1072",
+      "name": "壓力錶",
+      "category": "儀表／安全設備",
+      "spec": "0–0.6 MPaG",
+      "source": {
+        "sheet": "待確認-儀表、安全閥",
+        "row": 15
+      }
+    },
+    {
+      "id": "TG-1051A",
+      "name": "溫度錶",
+      "category": "儀表／安全設備",
+      "spec": "0–100；插入長度 400 mm",
+      "source": {
+        "sheet": "待確認-儀表、安全閥",
+        "row": 17
+      }
+    },
+    {
+      "id": "TG-1051B",
+      "name": "溫度錶",
+      "category": "儀表／安全設備",
+      "spec": "0–100；插入長度 400 mm",
+      "source": {
+        "sheet": "待確認-儀表、安全閥",
+        "row": 18
+      }
+    },
+    {
+      "id": "TG-1061",
+      "name": "溫度錶",
+      "category": "儀表／安全設備",
+      "spec": "0–100；插入長度 200 mm",
+      "source": {
+        "sheet": "待確認-儀表、安全閥",
+        "row": 19
+      }
+    },
+    {
+      "id": "TG-1062",
+      "name": "溫度錶",
+      "category": "儀表／安全設備",
+      "spec": "0–150；插入長度 200 mm",
+      "source": {
+        "sheet": "待確認-儀表、安全閥",
+        "row": 20
+      }
+    },
+    {
+      "id": "TG-1064",
+      "name": "溫度錶",
+      "category": "儀表／安全設備",
+      "spec": "0–100；插入長度 200 mm",
+      "source": {
+        "sheet": "待確認-儀表、安全閥",
+        "row": 21
+      }
+    },
+    {
+      "id": "TG-1021A",
+      "name": "溫度錶",
+      "category": "儀表／安全設備",
+      "spec": "0–100；插入長度 未確認 mm",
+      "source": {
+        "sheet": "待確認-儀表、安全閥",
+        "row": 22
+      }
+    },
+    {
+      "id": "TG-1021B",
+      "name": "溫度錶",
+      "category": "儀表／安全設備",
+      "spec": "0–100；插入長度 未確認 mm",
+      "source": {
+        "sheet": "待確認-儀表、安全閥",
+        "row": 23
+      }
+    },
+    {
+      "id": "TG-1021C",
+      "name": "溫度錶",
+      "category": "儀表／安全設備",
+      "spec": "0–100；插入長度 未確認 mm",
+      "source": {
+        "sheet": "待確認-儀表、安全閥",
+        "row": 24
+      }
+    },
+    {
+      "id": "TG-1031",
+      "name": "溫度錶",
+      "category": "儀表／安全設備",
+      "spec": "0–100；插入長度 未確認 mm",
+      "source": {
+        "sheet": "待確認-儀表、安全閥",
+        "row": 25
+      }
+    },
+    {
+      "id": "LG-1062",
+      "name": "液位計",
+      "category": "儀表／安全設備",
+      "spec": "中心距1000 mm",
+      "source": {
+        "sheet": "待確認-儀表、安全閥",
+        "row": 27
+      }
+    },
+    {
+      "id": "LG-1061",
+      "name": "液位計",
+      "category": "儀表／安全設備",
+      "spec": "中心距1500 mm",
+      "source": {
+        "sheet": "待確認-儀表、安全閥",
+        "row": 28
+      }
+    },
+    {
+      "id": "LG-1071",
+      "name": "液位計",
+      "category": "儀表／安全設備",
+      "spec": "中心距1500 mm",
+      "source": {
+        "sheet": "待確認-儀表、安全閥",
+        "row": 29
+      }
+    },
+    {
+      "id": "PT-1021",
+      "name": "壓力傳送器",
+      "category": "儀表／安全設備",
+      "spec": "-10–10 kPa",
+      "source": {
+        "sheet": "待確認-儀表、安全閥",
+        "row": 31
+      }
+    },
+    {
+      "id": "PT-1031",
+      "name": "壓力傳送器",
+      "category": "儀表／安全設備",
+      "spec": "-10–10 kPa",
+      "source": {
+        "sheet": "待確認-儀表、安全閥",
+        "row": 32
+      }
+    },
+    {
+      "id": "TT-1021A",
+      "name": "溫度傳送器",
+      "category": "儀表／安全設備",
+      "spec": "0–100 °C；4–20 mA",
+      "source": {
+        "sheet": "待確認-儀表、安全閥",
+        "row": 34
+      }
+    },
+    {
+      "id": "TT-1021B",
+      "name": "溫度傳送器",
+      "category": "儀表／安全設備",
+      "spec": "0–100 °C；4–20 mA",
+      "source": {
+        "sheet": "待確認-儀表、安全閥",
+        "row": 35
+      }
+    },
+    {
+      "id": "TT-1021C",
+      "name": "溫度傳送器",
+      "category": "儀表／安全設備",
+      "spec": "0–100 °C；4–20 mA",
+      "source": {
+        "sheet": "待確認-儀表、安全閥",
+        "row": 36
+      }
+    },
+    {
+      "id": "TT-1041",
+      "name": "溫度傳送器",
+      "category": "儀表／安全設備",
+      "spec": "0–100 °C；4–20 mA",
+      "source": {
+        "sheet": "待確認-儀表、安全閥",
+        "row": 37
+      }
+    },
+    {
+      "id": "TT-1051",
+      "name": "溫度傳送器",
+      "category": "儀表／安全設備",
+      "spec": "0–100 °C；4–20 mA",
+      "source": {
+        "sheet": "待確認-儀表、安全閥",
+        "row": 38
+      }
+    },
+    {
+      "id": "TT-1061",
+      "name": "溫度傳送器",
+      "category": "儀表／安全設備",
+      "spec": "0–100 °C；4–20 mA",
+      "source": {
+        "sheet": "待確認-儀表、安全閥",
+        "row": 39
+      }
+    },
+    {
+      "id": "LT-1021",
+      "name": "液位傳送器",
+      "category": "儀表／安全設備",
+      "spec": "原表未列量程",
+      "source": {
+        "sheet": "待確認-儀表、安全閥",
+        "row": 41
+      }
+    },
+    {
+      "id": "LT-1051A",
+      "name": "液位傳送器",
+      "category": "儀表／安全設備",
+      "spec": "原表未列量程",
+      "source": {
+        "sheet": "待確認-儀表、安全閥",
+        "row": 42
+      }
+    },
+    {
+      "id": "FI-1051",
+      "name": "流量指示器",
+      "category": "儀表／安全設備",
+      "spec": "主表未列規格",
+      "source": {
+        "sheet": "待確認-儀表、安全閥",
+        "row": 44
+      }
+    },
+    {
+      "id": "FI-1052A",
+      "name": "流量指示器",
+      "category": "儀表／安全設備",
+      "spec": "主表未列規格",
+      "source": {
+        "sheet": "待確認-儀表、安全閥",
+        "row": 45
+      }
+    },
+    {
+      "id": "FI-1052B",
+      "name": "流量指示器",
+      "category": "儀表／安全設備",
+      "spec": "主表未列規格",
+      "source": {
+        "sheet": "待確認-儀表、安全閥",
+        "row": 46
+      }
+    },
+    {
+      "id": "FIQ-1021A",
+      "name": "流量指示器",
+      "category": "儀表／安全設備",
+      "spec": "主表未列規格",
+      "source": {
+        "sheet": "待確認-儀表、安全閥",
+        "row": 47
+      }
+    },
+    {
+      "id": "FIQ-1021B",
+      "name": "流量指示器",
+      "category": "儀表／安全設備",
+      "spec": "主表未列規格",
+      "source": {
+        "sheet": "待確認-儀表、安全閥",
+        "row": 48
+      }
+    },
+    {
+      "id": "FIQ-1021C",
+      "name": "流量指示器",
+      "category": "儀表／安全設備",
+      "spec": "主表未列規格",
+      "source": {
+        "sheet": "待確認-儀表、安全閥",
+        "row": 49
+      }
+    },
+    {
+      "id": "LS-1021",
+      "name": "液位開關",
+      "category": "儀表／安全設備",
+      "spec": "主表誤列LT-1021；補充表列LS-1021（第114列）；待核對",
+      "source": {
+        "sheet": "待確認-儀表、安全閥",
+        "row": 51
+      }
+    },
+    {
+      "id": "LS-1051A",
+      "name": "液位開關",
+      "category": "儀表／安全設備",
+      "spec": "主表誤列LT-1051A；補充表列LS-1051A（第115列）；待核對",
+      "source": {
+        "sheet": "待確認-儀表、安全閥",
+        "row": 52
+      }
+    },
+    {
+      "id": "AT-1021",
+      "name": "分析儀",
+      "category": "儀表／安全設備",
+      "spec": "測H2S、CH4、O2",
+      "source": {
+        "sheet": "待確認-儀表、安全閥",
+        "row": 54
+      }
+    },
+    {
+      "id": "AT-1051",
+      "name": "分析儀",
+      "category": "儀表／安全設備",
+      "spec": "主表未列規格",
+      "source": {
+        "sheet": "待確認-儀表、安全閥",
+        "row": 55
+      }
+    },
+    {
+      "id": "PSV-1021A",
+      "name": "安全設備",
+      "category": "儀表／安全設備",
+      "spec": "原表記載改水封；不作安全設計依據",
+      "source": {
+        "sheet": "待確認-儀表、安全閥",
+        "row": 57
+      }
+    },
+    {
+      "id": "PSV-1021B",
+      "name": "安全設備",
+      "category": "儀表／安全設備",
+      "spec": "原表記載改水封；不作安全設計依據",
+      "source": {
+        "sheet": "待確認-儀表、安全閥",
+        "row": 58
+      }
+    },
+    {
+      "id": "PSV-1021C",
+      "name": "安全設備",
+      "category": "儀表／安全設備",
+      "spec": "原表記載改水封；不作安全設計依據",
+      "source": {
+        "sheet": "待確認-儀表、安全閥",
+        "row": 59
+      }
+    },
+    {
+      "id": "PSV-1031",
+      "name": "安全設備",
+      "category": "儀表／安全設備",
+      "spec": "原表記載改水封；不作安全設計依據",
+      "source": {
+        "sheet": "待確認-儀表、安全閥",
+        "row": 60
+      }
+    },
+    {
+      "id": "PSV-1062",
+      "name": "安全設備",
+      "category": "儀表／安全設備",
+      "spec": "原表記載改水封；不作安全設計依據",
+      "source": {
+        "sheet": "待確認-儀表、安全閥",
+        "row": 61
+      }
+    },
+    {
+      "id": "UNASSIGNED-SPRAY-INST",
+      "name": "沼液噴頭",
+      "category": "儀表／安全設備",
+      "spec": "未列規格；與靜設備噴頭可能重複",
+      "source": {
+        "sheet": "待確認-儀表、安全閥",
+        "row": 63
+      }
+    },
+    {
+      "id": "J-1004A/B-1/2",
+      "name": "沼液槽射流混合器",
+      "category": "儀表／安全設備",
+      "spec": "未列尺寸",
+      "source": {
+        "sheet": "待確認-儀表、安全閥",
+        "row": 64
+      }
+    }
+  ]
+}
