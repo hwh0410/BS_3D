@@ -1,0 +1,63 @@
+name: Publish original color V0.6.3
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+concurrency:
+  group: bs-color-v063
+  cancel-in-progress: false
+jobs:
+  publish:
+    if: github.event_name == 'workflow_dispatch' || github.event.release.tag_name == 'v0.6.3-color'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Download verified color bundle
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release download v0.6.3-color --pattern BS_color_v063.zip --output /tmp/BS_color_v063.zip
+          echo 'eef3826010963659302cfb00dc292d93509c4779b64059688f45d9e94affb1b9  /tmp/BS_color_v063.zip' | sha256sum -c -
+      - name: Verify and extract only approved assets
+        run: |
+          python - <<'PY'
+          import zipfile, json, hashlib, struct, re
+          from pathlib import Path
+          with zipfile.ZipFile('/tmp/BS_color_v063.zip') as z:
+              m=json.loads(z.read('manifest.json'))
+              assert m['source_sha256']=='d52a44d389925a7ee3cb7faf517f47e26ffc515ed1bf1f512ef546e8074de34f'
+              assert len(m['assemblies'])==50 and m['triangles']==4621182 and m['materials']==60
+              assert len(z.namelist())==51
+              p=Path('models/color');p.mkdir(parents=True,exist_ok=True)
+              total=0
+              for a in m['assemblies']:
+                  n=a['file'];assert re.fullmatch(r'assembly-\d{2}\.glb',n)
+                  b=z.read(n);assert len(b)==a['bytes'] and hashlib.sha256(b).hexdigest()==a['sha256']
+                  assert b[:4]==b'glTF'
+                  j=json.loads(b[20:20+struct.unpack_from('<I',b,12)[0]])
+                  faces=sum(j['accessors'][pr['indices']]['count']//3 for mesh in j['meshes'] for pr in mesh['primitives'])
+                  assert faces==a['triangles'] and len(j['materials'])==60
+                  total+=faces;(p/n).write_bytes(b)
+              assert total==4621182
+              (p/'manifest.json').write_bytes(z.read('manifest.json'))
+          PY
+      - name: Commit color assets
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add models/color/
+          if ! git diff --cached --quiet; then
+            git commit -m 'Publish verified original-color assemblies V0.6.3'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+      - name: Request Pages rebuild
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api --method POST "repos/${GITHUB_REPOSITORY}/pages/builds"
+        continue-on-error: true
