@@ -13,9 +13,9 @@ export async function loadColor(T,GLTFLoader,progress,active=()=>true,partial=()
  const manifest=await(await get(base+'manifest.json',signal)).json();
  if(manifest.source_sha256!=='d52a44d389925a7ee3cb7faf517f47e26ffc515ed1bf1f512ef546e8074de34f'||manifest.assemblies.length!==50||manifest.triangles!==4621182)throw Error('彩色模型清單校驗失敗');
  const items=manifest.assemblies.slice();if(new Set(items.map(a=>a.file)).size!==50||items.some(a=>!/^assembly-\d{2}\.glb$/.test(a.file)||!/^\w{64}$/.test(a.sha256)))throw Error('清單檔名校驗失敗');
- const priority=a=>/發酵貨櫃/.test(a.name)?0:/地基圖/.test(a.name)?1:/鋼構維修|螺運機/.test(a.name)?2:3;
+ const priority=a=>/發酵貨櫃|驗氧發酵貨櫃/.test(a.name)?0:/地基圖/.test(a.name)?1:/鋼構維修|螺運機/.test(a.name)?2:3;
  items.sort((a,b)=>priority(a)-priority(b)||a.bytes-b.bytes);
- let gzipReady=false;if(typeof DecompressionStream==='function'){try{const meta=await(await get('models/color-gzip/manifest.json',signal)).json();gzipReady=meta.source_sha256===manifest.source_sha256&&meta.assemblies===50}catch{}}const db=await openDB(),group=new T.Group();let next=0,done=0,total=0,loadedBytes=0,cacheHits=0,cacheBytes=0,cacheWrites=0,failed=null;const totalBytes=items.reduce((s,a)=>s+a.bytes,0);
+ let gzipReady=false;if(typeof DecompressionStream==='function'){try{const meta=await(await get('models/color-gzip/manifest.json',signal)).json();gzipReady=meta.source_sha256===manifest.source_sha256&&(meta.assemblies===50||meta.assets?.length===50)}catch{}}const db=await openDB(),group=new T.Group();let next=0,done=0,total=0,loadedBytes=0,cacheHits=0,cacheBytes=0,cacheWrites=0,failed=null;const totalBytes=items.reduce((s,a)=>s+a.bytes,0);
  const report=()=>({done,total:50,triangles:total,loadedBytes,totalBytes,cacheHits,cacheBytes,cacheWrites,elapsed:(performance.now()-start)/1000});
  const ensure=()=>{if(failed||!active()||signal.aborted)throw Error('載入已取消')};
  partial(group,null,report());
