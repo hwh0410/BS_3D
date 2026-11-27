@@ -1,0 +1,802 @@
+{
+  "schema": 1,
+  "units": "m",
+  "frame": "Three.js X/Y/Z, Y up; original CAD coordinates for reactor anchors",
+  "status": "draft",
+  "systems": {
+    "BG": {
+      "name": "沼氣",
+      "color": "#d1a12b"
+    },
+    "PG": {
+      "name": "抽排氣",
+      "color": "#83929d"
+    },
+    "WG": {
+      "name": "煙氣回送",
+      "color": "#9778b5"
+    },
+    "CAND": {
+      "name": "貨櫃管口候選",
+      "color": "#e8b45b"
+    }
+  },
+  "ports": [
+    {
+      "id": "T1.BG",
+      "owner": "沼液槽 1｜UL-50T",
+      "xyz": [
+        0,
+        7.456,
+        0
+      ],
+      "status": "estimated",
+      "note": "槽頂氣相接點暫定，非確認管口"
+    },
+    {
+      "id": "T2.BG",
+      "owner": "沼液槽 2｜UL-50T",
+      "xyz": [
+        0,
+        7.456,
+        0
+      ],
+      "status": "estimated",
+      "note": "槽頂氣相接點暫定，非確認管口"
+    },
+    {
+      "id": "T3.BG",
+      "owner": "沼液槽 3｜UL-50T",
+      "xyz": [
+        0,
+        7.456,
+        0
+      ],
+      "status": "estimated",
+      "note": "槽頂氣相接點暫定，非確認管口"
+    },
+    {
+      "id": "WELL.BG",
+      "owner": "沼液收集井",
+      "xyz": [
+        -0.46,
+        0.16,
+        0
+      ],
+      "status": "estimated",
+      "note": "頂部預留管口，功能待核"
+    },
+    {
+      "id": "BAG.IN",
+      "owner": "BD-1001 沼氣袋",
+      "xyz": [
+        5.2425,
+        1.07,
+        0
+      ],
+      "status": "estimated",
+      "note": "模型端面已定位，進出口方向暫定"
+    },
+    {
+      "id": "BAG.OUT",
+      "owner": "BD-1001 沼氣袋",
+      "xyz": [
+        -5.2425,
+        1.07,
+        0
+      ],
+      "status": "estimated",
+      "note": "模型端面已定位，進出口方向暫定"
+    },
+    {
+      "id": "SCRUB.IN",
+      "owner": "沼氣脫硫洗滌系統",
+      "xyz": [
+        3,
+        1.45,
+        0.3
+      ],
+      "status": "estimated",
+      "note": "示意接點，供應商管口待核"
+    },
+    {
+      "id": "SCRUB.OUT",
+      "owner": "沼氣脫硫洗滌系統",
+      "xyz": [
+        4.4,
+        1.05,
+        0.3
+      ],
+      "status": "estimated",
+      "note": "示意接點，供應商管口待核"
+    },
+    {
+      "id": "GEN.IN",
+      "owner": "20 呎貨櫃式發電機組",
+      "xyz": [
+        0.7,
+        1.2,
+        0
+      ],
+      "status": "estimated",
+      "note": "箱體端面暫定，實際接口待核"
+    },
+    {
+      "id": "R1.candidate6",
+      "owner": "original",
+      "xyz": [
+        -8.005,
+        -6.631615791320801,
+        25.219
+      ],
+      "system": "CAND",
+      "status": "estimated",
+      "note": "依前次辨識的第三座零件位置及貨櫃間距推估；橫向中心及密封面尚未量測，不代表已確認管口用途"
+    },
+    {
+      "id": "R1.candidate5",
+      "owner": "original",
+      "xyz": [
+        -4.658,
+        -6.681615791320801,
+        25.219
+      ],
+      "system": "CAND",
+      "status": "estimated",
+      "note": "依前次辨識的第三座零件位置及貨櫃間距推估；橫向中心及密封面尚未量測，不代表已確認管口用途"
+    },
+    {
+      "id": "R1.candidate4",
+      "owner": "original",
+      "xyz": [
+        -2.426,
+        -6.721615791320801,
+        25.219
+      ],
+      "system": "CAND",
+      "status": "estimated",
+      "note": "依前次辨識的第三座零件位置及貨櫃間距推估；橫向中心及密封面尚未量測，不代表已確認管口用途"
+    },
+    {
+      "id": "R1.candidate3",
+      "owner": "original",
+      "xyz": [
+        0.921,
+        -6.791615791320801,
+        25.219
+      ],
+      "system": "CAND",
+      "status": "estimated",
+      "note": "依前次辨識的第三座零件位置及貨櫃間距推估；橫向中心及密封面尚未量測，不代表已確認管口用途"
+    },
+    {
+      "id": "R2.candidate6",
+      "owner": "original",
+      "xyz": [
+        -8.005,
+        -6.631615791320801,
+        27.719
+      ],
+      "system": "CAND",
+      "status": "estimated",
+      "note": "依前次辨識的第三座零件位置及貨櫃間距推估；橫向中心及密封面尚未量測，不代表已確認管口用途"
+    },
+    {
+      "id": "R2.candidate5",
+      "owner": "original",
+      "xyz": [
+        -4.658,
+        -6.681615791320801,
+        27.719
+      ],
+      "system": "CAND",
+      "status": "estimated",
+      "note": "依前次辨識的第三座零件位置及貨櫃間距推估；橫向中心及密封面尚未量測，不代表已確認管口用途"
+    },
+    {
+      "id": "R2.candidate4",
+      "owner": "original",
+      "xyz": [
+        -2.426,
+        -6.721615791320801,
+        27.719
+      ],
+      "system": "CAND",
+      "status": "estimated",
+      "note": "依前次辨識的第三座零件位置及貨櫃間距推估；橫向中心及密封面尚未量測，不代表已確認管口用途"
+    },
+    {
+      "id": "R2.candidate3",
+      "owner": "original",
+      "xyz": [
+        0.921,
+        -6.791615791320801,
+        27.719
+      ],
+      "system": "CAND",
+      "status": "estimated",
+      "note": "依前次辨識的第三座零件位置及貨櫃間距推估；橫向中心及密封面尚未量測，不代表已確認管口用途"
+    },
+    {
+      "id": "R3.candidate6",
+      "owner": "original",
+      "xyz": [
+        -8.005,
+        -6.631615791320801,
+        30.219
+      ],
+      "system": "CAND",
+      "status": "estimated",
+      "note": "依前次辨識的第三座零件位置及貨櫃間距推估；橫向中心及密封面尚未量測，不代表已確認管口用途"
+    },
+    {
+      "id": "R3.candidate5",
+      "owner": "original",
+      "xyz": [
+        -4.658,
+        -6.681615791320801,
+        30.219
+      ],
+      "system": "CAND",
+      "status": "estimated",
+      "note": "依前次辨識的第三座零件位置及貨櫃間距推估；橫向中心及密封面尚未量測，不代表已確認管口用途"
+    },
+    {
+      "id": "R3.candidate4",
+      "owner": "original",
+      "xyz": [
+        -2.426,
+        -6.721615791320801,
+        30.219
+      ],
+      "system": "CAND",
+      "status": "estimated",
+      "note": "依前次辨識的第三座零件位置及貨櫃間距推估；橫向中心及密封面尚未量測，不代表已確認管口用途"
+    },
+    {
+      "id": "R3.candidate3",
+      "owner": "original",
+      "xyz": [
+        0.921,
+        -6.791615791320801,
+        30.219
+      ],
+      "system": "CAND",
+      "status": "estimated",
+      "note": "依前次辨識的第三座零件位置及貨櫃間距推估；橫向中心及密封面尚未量測，不代表已確認管口用途"
+    },
+    {
+      "id": "R4.candidate6",
+      "owner": "original",
+      "xyz": [
+        -8.005,
+        -6.631615791320801,
+        32.719
+      ],
+      "system": "CAND",
+      "status": "estimated",
+      "note": "依前次辨識的第三座零件位置及貨櫃間距推估；橫向中心及密封面尚未量測，不代表已確認管口用途"
+    },
+    {
+      "id": "R4.candidate5",
+      "owner": "original",
+      "xyz": [
+        -4.658,
+        -6.681615791320801,
+        32.719
+      ],
+      "system": "CAND",
+      "status": "estimated",
+      "note": "依前次辨識的第三座零件位置及貨櫃間距推估；橫向中心及密封面尚未量測，不代表已確認管口用途"
+    },
+    {
+      "id": "R4.candidate4",
+      "owner": "original",
+      "xyz": [
+        -2.426,
+        -6.721615791320801,
+        32.719
+      ],
+      "system": "CAND",
+      "status": "estimated",
+      "note": "依前次辨識的第三座零件位置及貨櫃間距推估；橫向中心及密封面尚未量測，不代表已確認管口用途"
+    },
+    {
+      "id": "R4.candidate3",
+      "owner": "original",
+      "xyz": [
+        0.921,
+        -6.791615791320801,
+        32.719
+      ],
+      "system": "CAND",
+      "status": "estimated",
+      "note": "依前次辨識的第三座零件位置及貨櫃間距推估；橫向中心及密封面尚未量測，不代表已確認管口用途"
+    },
+    {
+      "id": "B-1003A.IN",
+      "owner": "B-1003A 抽氣風機",
+      "xyz": [
+        -0.16,
+        0.30000000000000004,
+        0
+      ],
+      "system": "WG",
+      "status": "estimated",
+      "note": "依現有程序化風機模型接口；非原廠尺寸"
+    },
+    {
+      "id": "B-1003A.OUT",
+      "owner": "B-1003A 抽氣風機",
+      "xyz": [
+        0,
+        0.615,
+        -0.0713
+      ],
+      "system": "WG",
+      "status": "estimated",
+      "note": "依現有程序化風機模型接口；非原廠尺寸"
+    },
+    {
+      "id": "B-1003B.IN",
+      "owner": "B-1003B 抽氣風機",
+      "xyz": [
+        -0.16,
+        0.30000000000000004,
+        0
+      ],
+      "system": "WG",
+      "status": "estimated",
+      "note": "依現有程序化風機模型接口；非原廠尺寸"
+    },
+    {
+      "id": "B-1003B.OUT",
+      "owner": "B-1003B 抽氣風機",
+      "xyz": [
+        0,
+        0.615,
+        -0.0713
+      ],
+      "system": "WG",
+      "status": "estimated",
+      "note": "依現有程序化風機模型接口；非原廠尺寸"
+    },
+    {
+      "id": "B-1004A.IN",
+      "owner": "B-1004A 通風排氣機",
+      "xyz": [
+        -0.16,
+        0.35000000000000003,
+        0
+      ],
+      "system": "PG",
+      "status": "estimated",
+      "note": "依現有程序化風機模型接口；非原廠尺寸"
+    },
+    {
+      "id": "B-1004A.OUT",
+      "owner": "B-1004A 通風排氣機",
+      "xyz": [
+        0,
+        0.7150000000000001,
+        -0.0868
+      ],
+      "system": "PG",
+      "status": "estimated",
+      "note": "依現有程序化風機模型接口；非原廠尺寸"
+    },
+    {
+      "id": "B-1004B.IN",
+      "owner": "B-1004B 通風排氣機",
+      "xyz": [
+        -0.16,
+        0.35000000000000003,
+        0
+      ],
+      "system": "PG",
+      "status": "estimated",
+      "note": "依現有程序化風機模型接口；非原廠尺寸"
+    },
+    {
+      "id": "B-1004B.OUT",
+      "owner": "B-1004B 通風排氣機",
+      "xyz": [
+        0,
+        0.7150000000000001,
+        -0.0868
+      ],
+      "system": "PG",
+      "status": "estimated",
+      "note": "依現有程序化風機模型接口；非原廠尺寸"
+    }
+  ],
+  "junctions": [
+    {
+      "id": "J.R1",
+      "xyz": [
+        -8.7,
+        5.9,
+        3.75
+      ],
+      "note": "BG 預留分支，等待實際管口選定"
+    },
+    {
+      "id": "J.R2",
+      "xyz": [
+        -8.7,
+        5.9,
+        1.25
+      ],
+      "note": "BG 預留分支，等待實際管口選定"
+    },
+    {
+      "id": "J.R3",
+      "xyz": [
+        -8.7,
+        5.9,
+        -1.25
+      ],
+      "note": "BG 預留分支，等待實際管口選定"
+    },
+    {
+      "id": "J.R4",
+      "xyz": [
+        -8.7,
+        5.9,
+        -3.75
+      ],
+      "note": "BG 預留分支，等待實際管口選定"
+    },
+    {
+      "id": "J.T1",
+      "xyz": [
+        -9.8,
+        8.5,
+        -4.44
+      ]
+    },
+    {
+      "id": "J.T2",
+      "xyz": [
+        -9.8,
+        8.5,
+        -0.18
+      ]
+    },
+    {
+      "id": "J.T3",
+      "xyz": [
+        -9.8,
+        8.5,
+        4.08
+      ]
+    },
+    {
+      "id": "J.MAIN",
+      "xyz": [
+        -8.7,
+        5.9,
+        -7
+      ]
+    },
+    {
+      "id": "J.WELL",
+      "xyz": [
+        -8.7,
+        5.9,
+        -0.04
+      ]
+    },
+    {
+      "id": "WG.HEADER.IN",
+      "system": "WG",
+      "xyz": [
+        -3.876738768181295,
+        1.6,
+        -15.833043143959648
+      ],
+      "note": "風機並聯總管候選位置；未接往未確認的貨櫃及終端"
+    },
+    {
+      "id": "WG.HEADER.OUT",
+      "system": "WG",
+      "xyz": [
+        -1.876738768181295,
+        1.6,
+        -15.833043143959648
+      ],
+      "note": "風機並聯總管候選位置；未接往未確認的貨櫃及終端"
+    },
+    {
+      "id": "PG.HEADER.IN",
+      "system": "PG",
+      "xyz": [
+        -0.0776868071479817,
+        1.6,
+        -15.723243954334407
+      ],
+      "note": "風機並聯總管候選位置；未接往未確認的貨櫃及終端"
+    },
+    {
+      "id": "PG.HEADER.OUT",
+      "system": "PG",
+      "xyz": [
+        1.9223131928520183,
+        1.6,
+        -15.723243954334407
+      ],
+      "note": "風機並聯總管候選位置；未接往未確認的貨櫃及終端"
+    }
+  ],
+  "routes": [
+    {
+      "id": "BG-REVIEW-T1",
+      "system": "BG",
+      "from": "T1.BG",
+      "to": "J.T1",
+      "via": [],
+      "dn": "2″",
+      "status": "draft",
+      "note": "氣相平衡，方向非固定"
+    },
+    {
+      "id": "BG-REVIEW-T2",
+      "system": "BG",
+      "from": "T2.BG",
+      "to": "J.T2",
+      "via": [],
+      "dn": "2″",
+      "status": "draft",
+      "note": "氣相平衡，方向非固定"
+    },
+    {
+      "id": "BG-REVIEW-T3",
+      "system": "BG",
+      "from": "T3.BG",
+      "to": "J.T3",
+      "via": [],
+      "dn": "2″",
+      "status": "draft",
+      "note": "氣相平衡，方向非固定"
+    },
+    {
+      "id": "BG-REVIEW-H1",
+      "system": "BG",
+      "from": "J.R1",
+      "to": "J.R2",
+      "via": [],
+      "dn": "2″",
+      "status": "draft",
+      "note": ""
+    },
+    {
+      "id": "BG-REVIEW-H2",
+      "system": "BG",
+      "from": "J.R2",
+      "to": "J.WELL",
+      "via": [],
+      "dn": "2″",
+      "status": "draft",
+      "note": ""
+    },
+    {
+      "id": "BG-REVIEW-H3",
+      "system": "BG",
+      "from": "J.WELL",
+      "to": "J.R3",
+      "via": [],
+      "dn": "2″",
+      "status": "draft",
+      "note": ""
+    },
+    {
+      "id": "BG-REVIEW-H4",
+      "system": "BG",
+      "from": "J.R3",
+      "to": "J.R4",
+      "via": [],
+      "dn": "2″",
+      "status": "draft",
+      "note": ""
+    },
+    {
+      "id": "BG-REVIEW-H5",
+      "system": "BG",
+      "from": "J.R4",
+      "to": "J.MAIN",
+      "via": [],
+      "dn": "2″",
+      "status": "draft",
+      "note": ""
+    },
+    {
+      "id": "BG-REVIEW-T12",
+      "system": "BG",
+      "from": "J.T3",
+      "to": "J.T2",
+      "via": [],
+      "dn": "2″",
+      "status": "draft",
+      "note": ""
+    },
+    {
+      "id": "BG-REVIEW-T23",
+      "system": "BG",
+      "from": "J.T2",
+      "to": "J.T1",
+      "via": [],
+      "dn": "2″",
+      "status": "draft",
+      "note": ""
+    },
+    {
+      "id": "BG-10104",
+      "system": "BG",
+      "from": "J.T1",
+      "to": "J.MAIN",
+      "via": [
+        [
+          -9.8,
+          8.5,
+          -7
+        ],
+        [
+          -8.7,
+          8.5,
+          -7
+        ]
+      ],
+      "dn": "2″",
+      "status": "draft",
+      "note": "原圖氣相平衡線；路徑暫定"
+    },
+    {
+      "id": "BG-10111",
+      "system": "BG",
+      "from": "WELL.BG",
+      "to": "J.WELL",
+      "via": [],
+      "dn": "2″",
+      "status": "draft",
+      "note": "收集井氣相"
+    },
+    {
+      "id": "BG-REVIEW-BAG",
+      "system": "BG",
+      "from": "J.MAIN",
+      "to": "BAG.IN",
+      "via": [
+        [
+          -8.7,
+          5.9,
+          -19
+        ],
+        [
+          1.55,
+          5.9,
+          -19
+        ]
+      ],
+      "dn": "2″",
+      "status": "draft",
+      "note": "匯流至儲氣袋"
+    },
+    {
+      "id": "BG-10105",
+      "system": "BG",
+      "from": "BAG.OUT",
+      "to": "SCRUB.IN",
+      "via": [
+        [
+          -9,
+          4.8,
+          -20.82
+        ],
+        [
+          -18.8,
+          4.8,
+          -20.82
+        ],
+        [
+          -18.8,
+          4.8,
+          -14.28
+        ]
+      ],
+      "dn": "2″",
+      "status": "draft",
+      "note": "儲氣袋至脫硫，暫定走廊"
+    },
+    {
+      "id": "BG-10107",
+      "system": "BG",
+      "from": "SCRUB.OUT",
+      "to": "GEN.IN",
+      "via": [],
+      "dn": "2″",
+      "status": "draft",
+      "note": "脫硫至發電；接口及路徑暫定"
+    },
+    {
+      "id": "WG-B-1003A-IN",
+      "system": "WG",
+      "from": "WG.HEADER.IN",
+      "to": "B-1003A.IN",
+      "via": [],
+      "dn": "6″",
+      "status": "draft",
+      "note": "並聯接點局部骨架；主管尺寸參考舊圖，支管及變徑待核"
+    },
+    {
+      "id": "WG-B-1003A-OUT",
+      "system": "WG",
+      "from": "B-1003A.OUT",
+      "to": "WG.HEADER.OUT",
+      "via": [],
+      "dn": "6″",
+      "status": "draft",
+      "note": "並聯接點局部骨架；主管尺寸參考舊圖，支管及變徑待核"
+    },
+    {
+      "id": "WG-B-1003B-IN",
+      "system": "WG",
+      "from": "WG.HEADER.IN",
+      "to": "B-1003B.IN",
+      "via": [],
+      "dn": "6″",
+      "status": "draft",
+      "note": "並聯接點局部骨架；主管尺寸參考舊圖，支管及變徑待核"
+    },
+    {
+      "id": "WG-B-1003B-OUT",
+      "system": "WG",
+      "from": "B-1003B.OUT",
+      "to": "WG.HEADER.OUT",
+      "via": [],
+      "dn": "6″",
+      "status": "draft",
+      "note": "並聯接點局部骨架；主管尺寸參考舊圖，支管及變徑待核"
+    },
+    {
+      "id": "PG-B-1004A-IN",
+      "system": "PG",
+      "from": "PG.HEADER.IN",
+      "to": "B-1004A.IN",
+      "via": [],
+      "dn": "8″",
+      "status": "draft",
+      "note": "並聯接點局部骨架；主管尺寸參考舊圖，支管及變徑待核"
+    },
+    {
+      "id": "PG-B-1004A-OUT",
+      "system": "PG",
+      "from": "B-1004A.OUT",
+      "to": "PG.HEADER.OUT",
+      "via": [],
+      "dn": "8″",
+      "status": "draft",
+      "note": "並聯接點局部骨架；主管尺寸參考舊圖，支管及變徑待核"
+    },
+    {
+      "id": "PG-B-1004B-IN",
+      "system": "PG",
+      "from": "PG.HEADER.IN",
+      "to": "B-1004B.IN",
+      "via": [],
+      "dn": "8″",
+      "status": "draft",
+      "note": "並聯接點局部骨架；主管尺寸參考舊圖，支管及變徑待核"
+    },
+    {
+      "id": "PG-B-1004B-OUT",
+      "system": "PG",
+      "from": "B-1004B.OUT",
+      "to": "PG.HEADER.OUT",
+      "via": [],
+      "dn": "8″",
+      "status": "draft",
+      "note": "並聯接點局部骨架；主管尺寸參考舊圖，支管及變徑待核"
+    }
+  ],
+  "note": "BG 貨櫃分支暫停連接；PG/WG 僅風機局部並聯骨架，終端未確認，不可施工"
+}
