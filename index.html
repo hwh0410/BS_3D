@@ -1,7 +1,7 @@
-<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>BS 3D V0.8.1｜全廠配置</title><style>*{box-sizing:border-box}body{margin:0;background:#e9eff0;color:#17383d;font:14px system-ui,sans-serif}header{background:#153b43;color:white;padding:14px 20px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}header a{color:white}main{display:flex;height:calc(100dvh - 64px)}#view{flex:1;position:relative;min-width:0}canvas{display:block}aside{width:320px;overflow:auto;background:white;padding:16px}button,input{font:inherit}button{border:1px solid #aabfc0;background:white;padding:7px 10px;border-radius:6px;cursor:pointer}#tools{position:absolute;left:10px;top:10px;display:flex;gap:6px;flex-wrap:wrap;z-index:2}#labels{position:absolute;inset:0;pointer-events:none;overflow:hidden}.tag{position:absolute;background:#17383ddd;color:white;font-size:11px;padding:4px 6px;border-radius:4px;transform:translate(-50%,-100%);white-space:nowrap}label{display:block;padding:4px}h2{font-size:16px}p{line-height:1.6}#info,#status{white-space:pre-line;background:#edf5f3;padding:10px;border-radius:6px;line-height:1.6}.warning{color:#8b491b}#hint{position:absolute;bottom:12px;left:12px;background:#ffffffdf;padding:7px;border-radius:6px}@media(max-width:720px){main{flex-direction:column;height:calc(100dvh - 90px)}aside{width:100%;height:40%}#view{min-height:60%}}</style><script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"}}</script></head><body><header><b>BS 3D · V0.8.1</b><span>苗栗貨櫃式厭氧沼氣場｜全廠配置草案</span><a href="source-viewer.html">設備與原始模型</a></header><main><div id="view"><div id="tools"><button id="iso">全區視角</button><button id="top">俯視</button><button id="focus">貨櫃特寫</button><button id="flip">貨櫃端向反轉</button></div><div id="labels"></div><div id="hint">拖曳旋轉 · 滾輪縮放 · 點選設備</div></div><aside><div id="status">讀取工程配置…</div><progress id="loadingProgress" max="50" value="0" style="width:100%"></progress><button id="retry" hidden>重新載入</button><p id="perf" style="font-size:12px;color:#52676b"></p><label><input id="isolate" type="checkbox">只看工程模型（避免地坪遮擋）</label><label><input id="wellCut" type="checkbox">地下沼液收集井透視（移開頂蓋）</label><h2>地形預覽</h2><label><input id="naturalTerrain" type="checkbox">原始自然地形（推估；設備可能被坡面遮住）</label><p>取消勾選即顯示整地後單一水平平台。高程基準暫取120.27 m，非完成面測量值；等高距未確認，遠坡為展示外插。</p><h2>圖層</h2><div id="layers"></div><h2>設備資訊</h2><div id="info">點選場景物件。</div><h2>原始模型位置校核</h2><label>X 偏移 (m) <input id="dx" type="number" step=".1" value="0"></label><label>Z 偏移 (m) <input id="dz" type="number" step=".1" value="0"></label><label>Y 偏移 (m) <input id="dy" type="number" step=".1" value="0"></label><button id="reset">重設暫定對位</button><p>調整只在本次瀏覽有效，不修改原始模型。</p><h2>尚未校核</h2><p class="warning">粗黑界線依原圖保留，與貨櫃外框相交；非地籍或施工判定。黃色區塊為尚未建模設備，尺寸及部分編號待核。</p><p>地形為五處測點與16條等高線的暫定重建；等高距、整地邊界、坡率及完成面絕對標高待核。E-1005 電加熱器安裝位置待核，未另設落地模型。地下井管口方位及泵浦雙機排列為展示暫定。</p><a href="data/site-layout-v071.json">查看配置參數及來源說明</a></aside></main><script type="module">
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>BS 3D V0.8.2｜全廠配置</title><style>*{box-sizing:border-box}body{margin:0;background:#e9eff0;color:#17383d;font:14px system-ui,sans-serif}header{background:#153b43;color:white;padding:14px 20px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}header a{color:white}main{display:flex;height:calc(100dvh - 64px)}#view{flex:1;position:relative;min-width:0}canvas{display:block}aside{width:320px;overflow:auto;background:white;padding:16px}button,input{font:inherit}button{border:1px solid #aabfc0;background:white;padding:7px 10px;border-radius:6px;cursor:pointer}#tools{position:absolute;left:10px;top:10px;display:flex;gap:6px;flex-wrap:wrap;z-index:2}#labels{position:absolute;inset:0;pointer-events:none;overflow:hidden}.hoverTag{pointer-events:none;z-index:3;transform:none!important;max-width:calc(100% - 16px);white-space:normal!important;overflow-wrap:anywhere}.tag{position:absolute;background:#17383ddd;color:white;font-size:11px;padding:4px 6px;border-radius:4px;transform:translate(-50%,-100%);white-space:nowrap}label{display:block;padding:4px}h2{font-size:16px}p{line-height:1.6}#info,#status{white-space:pre-line;background:#edf5f3;padding:10px;border-radius:6px;line-height:1.6}.warning{color:#8b491b}#hint{position:absolute;bottom:12px;left:12px;background:#ffffffdf;padding:7px;border-radius:6px}@media(max-width:720px){main{flex-direction:column;height:calc(100dvh - 90px)}aside{width:100%;height:40%}#view{min-height:60%}}</style><script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"}}</script></head><body><header><b>BS 3D · V0.8.2</b><span>苗栗貨櫃式厭氧沼氣場｜全廠配置草案</span><a href="source-viewer.html">設備與原始模型</a></header><main><div id="view"><div id="tools"><button id="iso">全區視角</button><button id="top">俯視</button><button id="focus">貨櫃特寫</button><button id="flip">貨櫃端向反轉</button></div><div id="labels"></div><div id="hint">拖曳旋轉 · 滾輪縮放 · 指向顯示名稱 · 點選查看規格</div></div><aside><div id="status">讀取工程配置…</div><progress id="loadingProgress" max="50" value="0" style="width:100%"></progress><button id="retry" hidden>重新載入</button><p id="perf" style="font-size:12px;color:#52676b"></p><label><input id="isolate" type="checkbox">只看工程模型（避免地坪遮擋）</label><label><input id="wellCut" type="checkbox">地下沼液收集井透視（移開頂蓋）</label><h2>地形預覽</h2><label><input id="naturalTerrain" type="checkbox">原始自然地形（推估；設備可能被坡面遮住）</label><p>取消勾選即顯示整地後單一水平平台。高程基準暫取120.27 m，非完成面測量值；等高距未確認，遠坡為展示外插。</p><h2>圖層</h2><div id="layers"></div><h2>設備資訊</h2><div id="info">點選場景物件。</div><h2>原始模型位置校核</h2><label>X 偏移 (m) <input id="dx" type="number" step=".1" value="0"></label><label>Z 偏移 (m) <input id="dz" type="number" step=".1" value="0"></label><label>Y 偏移 (m) <input id="dy" type="number" step=".1" value="0"></label><button id="reset">重設暫定對位</button><p>調整只在本次瀏覽有效，不修改原始模型。</p><h2>尚未校核</h2><p class="warning">粗黑界線依原圖保留，與貨櫃外框相交；非地籍或施工判定。黃色區塊為尚未建模設備，尺寸及部分編號待核。</p><p>地形為五處測點與16條等高線的暫定重建；等高距、整地邊界、坡率及完成面絕對標高待核。E-1005 電加熱器安裝位置待核，未另設落地模型。地下井管口方位及泵浦雙機排列為展示暫定。</p><a href="data/site-layout-v071.json">查看配置參數及來源說明</a></aside></main><script type="module">
 import * as T from 'three';import {OrbitControls} from 'three/addons/controls/OrbitControls.js';import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';import {loadColor,disposeColor} from './src/load-color-v065.js';
-const view=document.querySelector('#view'),status=document.querySelector('#status'),info=document.querySelector('#info'),scene=new T.Scene();scene.background=new T.Color(0xe4edf0);const camera=new T.PerspectiveCamera(45,1,.1,500),r=new T.WebGLRenderer({antialias:true});r.setPixelRatio(Math.min(devicePixelRatio,2));view.prepend(r.domElement);const controls=new OrbitControls(camera,r.domElement);controls.enableDamping=true;scene.add(new T.HemisphereLight(0xffffff,0x84948c,2));const sun=new T.DirectionalLight(0xffffff,2.2);sun.position.set(-20,45,30);scene.add(sun);const tags=[],layers={},hits=[];let layout,assembly,shift,angle=0;function layer(id,title,visible=true){const g=new T.Group();g.visible=visible;scene.add(g);layers[id]=g;const l=document.createElement('label'),c=document.createElement('input');c.type='checkbox';c.checked=visible;c.onchange=()=>g.visible=c.checked;l.append(c,' '+title);document.querySelector('#layers').append(l);return g}function mesh(g,geo,c,x=0,y=0,z=0){const m=new T.Mesh(geo,new T.MeshStandardMaterial({color:c,roughness:.83,side:T.DoubleSide}));m.position.set(x,y,z);g.add(m);return m}function box(g,x,y,z,w,h,d,c){return mesh(g,new T.BoxGeometry(w,h,d),c,x,y,z)}function tag(g,name,desc,h){g.userData={name,desc};hits.push(g);const e=document.createElement('div');e.className='tag';e.textContent=name;document.querySelector('#labels').append(e);tags.push({g,e,h})}function xy(p){const [a,b]=layout.frame.origin_px,k=layout.frame.pixels_per_m*Math.SQRT2;return [(p[0]-a-(p[1]-b))/k,(p[0]-a+p[1]-b)/k]}function line(g,ps,color,y=.04,closed=false){const v=ps.map(p=>{const [x,z]=xy(p);return new T.Vector3(x,y,z)});if(closed)v.push(v[0]);g.add(new T.Line(new T.BufferGeometry().setFromPoints(v),new T.LineBasicMaterial({color})))}
-// V0.8.1: illustrative trapezoidal coated-steel ribs, no downloaded textures.
+const view=document.querySelector('#view'),status=document.querySelector('#status'),info=document.querySelector('#info'),scene=new T.Scene();scene.background=new T.Color(0xe4edf0);const camera=new T.PerspectiveCamera(45,1,.1,500),r=new T.WebGLRenderer({antialias:true});r.setPixelRatio(Math.min(devicePixelRatio,2));view.prepend(r.domElement);const controls=new OrbitControls(camera,r.domElement);controls.enableDamping=true;scene.add(new T.HemisphereLight(0xffffff,0x84948c,2));const sun=new T.DirectionalLight(0xffffff,2.2);sun.position.set(-20,45,30);scene.add(sun);const layers={},hits=[];let layout,assembly,shift,angle=0;function layer(id,title,visible=true){const g=new T.Group();g.visible=visible;scene.add(g);layers[id]=g;const l=document.createElement('label'),c=document.createElement('input');c.type='checkbox';c.checked=visible;c.onchange=()=>g.visible=c.checked;l.append(c,' '+title);document.querySelector('#layers').append(l);return g}function mesh(g,geo,c,x=0,y=0,z=0){const m=new T.Mesh(geo,new T.MeshStandardMaterial({color:c,roughness:.83,side:T.DoubleSide}));m.position.set(x,y,z);g.add(m);return m}function box(g,x,y,z,w,h,d,c){return mesh(g,new T.BoxGeometry(w,h,d),c,x,y,z)}function tag(g,name,desc,h){g.userData={name,desc};hits.push(g)}function xy(p){const [a,b]=layout.frame.origin_px,k=layout.frame.pixels_per_m*Math.SQRT2;return [(p[0]-a-(p[1]-b))/k,(p[0]-a+p[1]-b)/k]}function line(g,ps,color,y=.04,closed=false){const v=ps.map(p=>{const [x,z]=xy(p);return new T.Vector3(x,y,z)});if(closed)v.push(v[0]);g.add(new T.Line(new T.BufferGeometry().setFromPoints(v),new T.LineBasicMaterial({color})))}
+// V0.8.2: illustrative trapezoidal coated-steel ribs, no downloaded textures.
 const roofMaterials=new Map();
 function roofMaterial(color){if(!roofMaterials.has(color)){roofMaterials.set(color,new T.MeshStandardMaterial({color,roughness:.56,metalness:.22,side:T.DoubleSide}))}return roofMaterials.get(color)}
 function roof(g,L,W,e,h,color=0x9c4338,wallL=L-.25,wallW=W-.25,gableColor=0xe7dfce){
@@ -22,7 +22,7 @@ function roof(g,L,W,e,h,color=0x9c4338,wallL=L-.25,wallW=W-.25,gableColor=0xe7df
  const cp=[-L/2,capEdge,-capW,L/2,capEdge,-capW,-L/2,h,0,L/2,h,0,-L/2,capEdge,capW,L/2,capEdge,capW];
  const cg=new T.BufferGeometry();cg.setAttribute('position',new T.Float32BufferAttribute(cp,3));cg.setIndex([0,1,2,1,3,2,2,3,4,3,5,4]);cg.computeVertexNormals();g.add(new T.Mesh(cg,mat));
 }
-// V0.8.1 building appearance: local materials, true wall openings, lightweight trim.
+// V0.8.2 building appearance: local materials, true wall openings, lightweight trim.
 let facadePalette;
 function buildingMaterials(){
  if(facadePalette)return facadePalette;
@@ -161,7 +161,7 @@ function buildBD1001(parent,p){
  pipe([.50,cy-R+.012,0],[.50,.28,0],.0167,.038);
  tag(g,'BD-1001 沼氣袋','紅泥柔性膜體｜直徑 2500 mm × 長度 10000 mm｜膜厚 1.8 mm｜進口 2″｜出口 2″｜洩水口 1″｜操作溫度 35°C｜外框承托式不鏽鋼架。袋體尺寸依提供規格；支架、接縫、管口位置及外框尺寸為展示假設，非施工圖。',3.3);
 }
-// V0.8.1 UL-50T: vendor nominal envelope; photo-derived accessories are illustrative.
+// V0.8.2 UL-50T: vendor nominal envelope; photo-derived accessories are illustrative.
 let ul50Prototype;
 function makeUL50(){
  const g=new T.Group(),R=1.55,H=6.963,top=7.456;
@@ -216,7 +216,7 @@ function buildUL50Tank(parent,p,i){
  g.rotation.y=0;
  tag(g,'沼液槽 '+(i+1)+'｜UL-50T','原圖儲水槽 '+(i+1)+'｜大鋒 UL-50T｜HDPE｜標稱 50 T｜外徑 3100 mm｜圓柱段 6963 mm｜頂部 493 mm｜槽體總高 7456 mm（不含護欄）｜各自黃色爬梯及護欄；護欄 1.10 m、護籠及管口位置為展示假設，正式設備編號待核。',8.35);
 }
-// V0.8.1 small cooling and water equipment; nominal dimensions in metres.
+// V0.8.2 small cooling and water equipment; nominal dimensions in metres.
 const smallTankSpecs={
  'D-1003':{name:'冷卻水塔',model:'LBC-25',h:1.8,d:1.38,desc:'冷卻能力 97,500 kcal/h｜循環水 325 L/min｜馬達 3/4 HP｜風量 225 m³/min｜風扇 Ø770 mm｜進出水 2½″、排水及溢流 1″、補水 ½″'},
  'D-1004':{name:'溫水箱',model:'2000ST',h:1.9,d:1.42,body:1.2,desc:'2000 L｜不鏽鋼｜桶身 1.20 m｜支架高 0.50 m｜厚 1.0 mm｜入水 ¾″×2、出水 2″、清潔口暫採 PDF 1″（照片標 1½″）；總高依指定 1.90 m'},
@@ -276,7 +276,7 @@ function buildSmallTank(parent,p,id){
  }
  tag(g,id+' '+sp.name,sp.model+'｜總高 '+H.toFixed(2)+' m｜外徑 '+sp.d.toFixed(2)+' m｜'+sp.desc+'；外觀細部、管口方向與接頭外伸為展示估讀，非施工尺寸。',H+.18);
 }
-// V0.8.1 rotating equipment: approximate envelopes, not vendor-certified dimensions.
+// V0.8.2 rotating equipment: approximate envelopes, not vendor-certified dimensions.
 const rotatingSpecs={
  'G-1002':{name:'溫水泵',model:'大川 CVS12-2',kind:'vertical',hp:3,dn:50,desc:'12 m³/h｜揚程25 m｜SUS304｜220 V'},
  'G-1003':{name:'沼液井泵',model:'川源 WGPS-31-40',kind:'volute',hp:1,dn:40,desc:'7.86 m³/h｜揚程16 m｜SCS14｜220 V'},
@@ -313,7 +313,7 @@ function makeRotating(sp){const M=rotatingMaterials(),g=new T.Group(),dn=sp.dn/2
 }
 function buildRotating(parent,p){const key=p.id.replace(/[AB]$/,''),sp=rotatingSpecs[key];if(!sp)return false;const [x,z]=xy(p.center),blower=sp.kind==='blower',single=blower||key==='G-1008';const suffix=key==='B-1004'?(p.id.endsWith('A')?'A':'B'):p.id.endsWith('A')?'A':p.id.endsWith('B')?'B':'';
  const units=single?[suffix]:['A','B'];for(let i=0;i<units.length;i++){const g=makeRotating(sp);parent.add(g);g.position.set(x,0,z+(single?0:(i-.5)*.43));const id=key+units[i];tag(g,id+' '+sp.name,sp.model+'｜'+sp.hp+' HP｜'+sp.desc+(id==='B-1003A'?'｜變頻控制':'')+'｜外廓、配色、接管方向及雙機排列為展示估讀，非原廠尺寸圖。',sp.kind==='vertical'?.95:sp.kind==='blower'?.85:.53)}return true}
-// V0.8.1: replace former generator room with open-sided shared canopy.
+// V0.8.2: replace former generator room with open-sided shared canopy.
 function buildPowerZone(b,canopyLayer,genLayer,scrubLayer){
  const [x,z]=xy(b.center),M=rotatingMaterials(),mat=(color,roughness=.7,metalness=.15)=>new T.MeshStandardMaterial({color,roughness,metalness}),steel=mat(0x9ba9ad,.55,.4),roofMat=mat(0x929fa5),blue=mat(0x26569a,.65,.22),dark=mat(0x26343b),pp=mat(0xadb5ad,.85,0),pipe=mat(0x929e97,.7,0),white=mat(0xe0e5e4),green=mat(0x456e50);
  const group=parent=>{const g=new T.Group();parent.add(g);g.position.set(x,0,z);return g};
@@ -377,8 +377,8 @@ function buildPowerZone(b,canopyLayer,genLayer,scrubLayer){
  tag(d,'沼氣脫硫洗滌系統','PP塔 Ø600 × H4300 mm，厚5 mm｜水槽1200 ×1200 ×900 mm｜附件配置3 ×2 m，土木基礎3 ×3 m｜附件最高4627 mm｜立式無軸封泵120 L/min×15 mH｜Air Sep氧氣機2套｜100 L PE加藥桶｜FRP風車2 HP｜200 mm PP風管｜參考2020年計畫書；附屬設備細部及現場適用性待核。',4.95);
 }
 function pose(p,t){camera.position.set(...p);controls.target.set(...t);controls.update()}document.querySelector('#iso').onclick=()=>pose([27,42,48],[-12,0,4]);document.querySelector('#top').onclick=()=>pose([-12,75,4.01],[-12,0,4]);document.querySelector('#focus').onclick=()=>pose([17,15,20],[0,1,0]);document.querySelector('#iso').click();
-// V0.8.1: retain original below-grade digestate pit and screw trough; remove duplicate imported slab.
-// V0.8.1 heat exchangers and buried FRP collection well.
+// V0.8.2: retain original below-grade digestate pit and screw trough; remove duplicate imported slab.
+// V0.8.2 heat exchangers and buried FRP collection well.
 const wellCut={value:0},wellPresent={value:0},wellCenter={value:new T.Vector2()};
 let wellInterior=null,wellSurface=null,wellSync=null;
 function buildExchanger(parent,p){
@@ -435,7 +435,7 @@ function applyGroundCut(material){
  material.customProgramCacheKey=()=> 'BS3D-ground-pit-well-v0710';
  material.needsUpdate=true;
 }
-// V0.8.1 terrain preview: PDF paths simplified at 2 pt, registered in existing crop coordinates.
+// V0.8.2 terrain preview: PDF paths simplified at 2 pt, registered in existing crop coordinates.
 // No surveyed contour interval or finished-grade datum was supplied.
 const terrainContours=[
 [[1055,279.5],[996,302.4],[886,373.3],[852.7,391.9],[699.5,504.5],[680.9,521.7],[610.3,602.7],[565.9,669.7],[555.1,690.7]],
@@ -530,7 +530,7 @@ function retainOriginalPit(part){
  groundCutEnabled.value=1;
 }
 function position(){if(!shift||!assembly)return;const d=id=>Number(document.querySelector('#'+id).value)||0;shift.position.set(d('dx'),d('dy'),d('dz'));shift.rotation.y=angle;assembly.updateWorldMatrix(true,false);groundSourceInverse.copy(assembly.matrixWorld).invert()}for(const id of ['dx','dy','dz'])document.querySelector('#'+id).oninput=position;document.querySelector('#flip').onclick=()=>{angle=(angle+Math.PI)%(2*Math.PI);position()};document.querySelector('#reset').onclick=()=>{for(const id of ['dx','dy','dz'])document.querySelector('#'+id).value=0;angle=(layout?.reactor.rotation_y_deg??0)*Math.PI/180;position()};
-async function init(){const res=await fetch('data/site-layout-v071.json');if(!res.ok)throw Error('配置資料 '+res.status);layout=await res.json();angle=(layout.reactor.rotation_y_deg??0)*Math.PI/180;const land=layer('land','基地平面'),bounds=layer('boundary','原圖粗黑界線'),cont=layer('contours','原圖等高線／高程點',false),buildings=layer('buildings','辦公室'),canopy=layer('powerCanopy','發電設備遮雨棚'),generator=layer('generator','20 呎貨櫃發電機組'),scrubber=layer('scrubber','沼氣脫硫系統'),tanks=layer('tanks','沼液槽 1–3（UL-50T）'),reserved=layer('reserved','未建模設備占位'),thermal=layer('thermal','殼管式熱交換器'),wellLayer=layer('well','地下沼液收集井'),rotating=layer('rotating','泵浦及鼓風機'),smallTanks=layer('smallTanks','冷卻及供熱設備 D-1003–1006'),gasbag=layer('gasbag','BD-1001 紅泥沼氣袋'),drains=layer('drains','排水溝參考'),model=layer('model','原始貨櫃與共用設備');buildUnifiedGround(land);buildTerrainReference(cont,bounds);layout.buildings.forEach(b=>{if(b.name==='發電機房')buildPowerZone(b,canopy,generator,scrubber);else build(buildings,b)});layout.tanks.forEach((p,i)=>buildUL50Tank(tanks,p,i));for(const p of layout.placeholders){if(buildRotating(rotating,p))continue;if(p.id==='E-1002'||p.id==='E-1003'){buildExchanger(thermal,p);continue;}if(!p.id&&p.center[0]===652&&p.center[1]===413){buildCollectionWell(wellLayer,p);continue;}const smallId=p.id|| (p.name==='槽體（待核）'&&p.center[0]===401&&p.center[1]===304?'D-1003':'');if(smallTankSpecs[smallId]){buildSmallTank(smallTanks,p,smallId);continue;}if(p.id==='BD-1001'){buildBD1001(gasbag,p);continue;}const [x,z]=xy(p.center),g=new T.Group();reserved.add(g);g.position.set(x,.12,z);const geo=p.shape==='circle'?new T.CircleGeometry(p.diameter/2,32):new T.PlaneGeometry(p.length,p.width);const m=new T.Mesh(geo,new T.MeshBasicMaterial({color:0xd09a39,transparent:true,opacity:.55,side:T.DoubleSide,depthWrite:false}));m.rotation.x=-Math.PI/2;g.add(m);tag(g,(p.id?p.id+' ':'')+p.name,'未建模占位｜'+p.note,.25)}for(const d of layout.drains){line(drains,d.points,0x1888a1,.15);const mid=d.points[Math.floor(d.points.length/2)],[x,z]=xy(mid),g=new T.Group();drains.add(g);g.position.set(x,.15,z);tag(g,d.name,'排水溝線形參考；非施工定位。',.3)}shift=new T.Group();model.add(shift);const {source_center_xz:c,source_base_y:y}=layout.reactor;await loadModel();}
+async function init(){const res=await fetch('data/site-layout-v071.json');if(!res.ok)throw Error('配置資料 '+res.status);layout=await res.json();angle=(layout.reactor.rotation_y_deg??0)*Math.PI/180;const land=layer('land','基地平面'),bounds=layer('boundary','原圖粗黑界線'),cont=layer('contours','原圖等高線／高程點',false),buildings=layer('buildings','辦公室'),canopy=layer('powerCanopy','發電設備遮雨棚'),generator=layer('generator','20 呎貨櫃發電機組'),scrubber=layer('scrubber','沼氣脫硫系統'),tanks=layer('tanks','沼液槽 1–3（UL-50T）'),reserved=layer('reserved','未建模設備占位'),thermal=layer('thermal','殼管式熱交換器'),wellLayer=layer('well','地下沼液收集井'),rotating=layer('rotating','泵浦及鼓風機'),smallTanks=layer('smallTanks','冷卻及供熱設備 D-1003–1006'),gasbag=layer('gasbag','BD-1001 紅泥沼氣袋'),drains=layer('drains','排水溝參考'),model=layer('model','原始貨櫃與共用設備');buildUnifiedGround(land);buildTerrainReference(cont,bounds);layout.buildings.forEach(b=>{if(b.name==='發電機房')buildPowerZone(b,canopy,generator,scrubber);else build(buildings,b)});layout.tanks.forEach((p,i)=>buildUL50Tank(tanks,p,i));for(const p of layout.placeholders){if(buildRotating(rotating,p))continue;if(p.id==='E-1002'||p.id==='E-1003'){buildExchanger(thermal,p);continue;}if(!p.id&&p.center[0]===652&&p.center[1]===413){buildCollectionWell(wellLayer,p);continue;}const smallId=p.id|| (p.name==='槽體（待核）'&&p.center[0]===401&&p.center[1]===304?'D-1003':'');if(smallTankSpecs[smallId]){buildSmallTank(smallTanks,p,smallId);continue;}if(p.id==='BD-1001'){buildBD1001(gasbag,p);continue;}const [x,z]=xy(p.center),g=new T.Group();reserved.add(g);g.position.set(x,.12,z);const geo=p.shape==='circle'?new T.CircleGeometry(p.diameter/2,32):new T.PlaneGeometry(p.length,p.width);const m=new T.Mesh(geo,new T.MeshBasicMaterial({color:0xd09a39,transparent:true,opacity:.55,side:T.DoubleSide,depthWrite:false}));m.rotation.x=-Math.PI/2;g.add(m);tag(g,(p.id?p.id+' ':'')+p.name,'未建模占位｜'+p.note,.25)}for(const d of layout.drains){const g=new T.Group();drains.add(g);line(g,d.points,0x1888a1,.15);tag(g,d.name,'排水溝線形參考；非施工定位。',.3)}shift=new T.Group();model.add(shift);const {source_center_xz:c,source_base_y:y}=layout.reactor;await loadModel();}
 let loadGeneration=0;
 const progressBar=document.querySelector('#loadingProgress'),retry=document.querySelector('#retry'),perf=document.querySelector('#perf');
 function removeAssembly(){if(!assembly)return;const old=assembly;for(let i=hits.length-1;i>=0;i--){let o=hits[i];while(o&&o!==old)o=o.parent;if(o===old)hits.splice(i,1)}old.removeFromParent();disposeColor(old);assembly=null}
@@ -538,6 +538,62 @@ function registerPart(part){part.updateMatrixWorld(true);const name=part.userDat
 async function loadModel(){if(!shift)return;const n=++loadGeneration;removeAssembly();groundCutEnabled.value=0;retry.hidden=true;progressBar.value=0;status.textContent='正在載入原始彩色模型…';try{const g=await loadColor(T,GLTFLoader,(msg,stats)=>{if(n!==loadGeneration)return;status.textContent=msg;progressBar.value=stats.done;perf.textContent='已驗證 '+stats.triangles.toLocaleString()+' 面｜本機快取 '+(stats.cacheBytes/1e6).toFixed(1)+' MB'},()=>n===loadGeneration,(group,part,stats)=>{if(n!==loadGeneration)return;if(!part){assembly=group;const {source_center_xz:c,source_base_y:y}=layout.reactor;assembly.position.set(-c[0],-originalGradeY,-c[1]);shift.add(assembly);position()}else {if(part.userData.name==='40呎貨櫃厭氧發酵-地基圖.-1')retainOriginalPit(part);registerPart(part)}});if(n!==loadGeneration)return;status.textContent='原始彩色模型已驗證｜50 組｜統一地坪，保留原始儲料坑與輸送凹槽';perf.textContent='載入 '+g.stats.elapsed.toFixed(1)+' 秒｜快取 '+g.stats.cacheHits+'/50 組｜全部幾何已驗證'+'｜下載 '+(g.stats.wireBytes/1e6).toFixed(1)+' MB｜GZIP '+g.stats.gzipHits+'/50｜新增快取 '+g.stats.cacheWrites+' 組｜快取可用 '+(g.stats.cacheAvailable?'是':'否')+'｜各工作累計 網路 '+(g.stats.networkMs/1000).toFixed(1)+'s／解析 '+(g.stats.parseMs/1000).toFixed(1)+'s／快取 '+(g.stats.cacheMs/1000).toFixed(1)+'s'}catch(e){if(n===loadGeneration){removeAssembly();groundCutEnabled.value=0;status.textContent='彩色模型載入失敗：'+e.message;retry.hidden=false}}}
 retry.onclick=loadModel;
 document.querySelector('#isolate').onchange=e=>{for(const [id,g] of Object.entries(layers)){if(id==='model')continue;g.visible=!e.target.checked;const i=Object.keys(layers).indexOf(id);document.querySelector('#layers').children[i].firstChild.checked=g.visible}};
-const ray=new T.Raycaster(),mouse=new T.Vector2();let down;r.domElement.addEventListener('pointerdown',e=>down=[e.clientX,e.clientY]);r.domElement.addEventListener('pointerup',e=>{if(!down||Math.hypot(e.clientX-down[0],e.clientY-down[1])>5)return;const b=r.domElement.getBoundingClientRect();mouse.set((e.clientX-b.left)/b.width*2-1,1-(e.clientY-b.top)/b.height*2);ray.setFromCamera(mouse,camera);const h=ray.intersectObjects(hits,true).find(h=>{let o=h.object;while(o){if(!o.visible)return false;o=o.parent}return true});if(h){let o=h.object;while(o&&!o.userData.name)o=o.parent;if(o)info.textContent=o.userData.name+'\n'+o.userData.desc}});
-new ResizeObserver(()=>{r.setSize(view.clientWidth,view.clientHeight);camera.aspect=view.clientWidth/view.clientHeight;camera.updateProjectionMatrix()}).observe(view);r.setAnimationLoop(()=>{controls.update();if(wellSync)wellSync();r.render(scene,camera);for(const {g,e,h} of tags){const v=g.getWorldPosition(new T.Vector3());v.y+=h;v.project(camera);e.style.display=g.parent.visible&&Math.abs(v.x)<1&&Math.abs(v.y)<1&&Math.abs(v.z)<1?'block':'none';e.style.left=(v.x*.5+.5)*view.clientWidth+'px';e.style.top=(-v.y*.5+.5)*view.clientHeight+'px'}});init().catch(err=>status.textContent='載入未完成：'+err.message+'；可前往原始模型頁面檢視。');
+// V0.8.2: single on-demand equipment tooltip; no floating labels by default.
+const ray=new T.Raycaster(),mouse=new T.Vector2(),tip=document.createElement('div');
+tip.className='tag hoverTag';tip.hidden=true;document.querySelector('#labels').append(tip);
+let down=null,hoverOwner=null,hoverPoint=null,hoverTimer=0;
+const pickBox=new T.Box3(),pickPoint=new T.Vector3();
+function visibleInScene(o){for(let p=o;p;p=p.parent){if(!p.visible)return false;if(p===scene)return true}return false}
+function namedOwner(o){while(o&&!o.userData.name)o=o.parent;return o||null}
+function pickEquipment(clientX,clientY){
+ const b=r.domElement.getBoundingClientRect();if(!b.width||!b.height)return null;
+ mouse.set((clientX-b.left)/b.width*2-1,1-(clientY-b.top)/b.height*2);
+ scene.updateMatrixWorld(true);camera.updateMatrixWorld();ray.setFromCamera(mouse,camera);
+ // Broad phase on geometry bounds, then exact ray tests only for near candidates.
+ // Instanced meshes use their aggregate bounds; ordinary meshes use local geometry bounds.
+ const candidates=[],seen=new Set();
+ function collect(o){
+  if(seen.has(o)||!visibleInScene(o))return;seen.add(o);
+  if(o.isMesh||o.isLine){
+   if(o.isInstancedMesh){if(!o.boundingBox)o.computeBoundingBox();pickBox.copy(o.boundingBox)}
+   else{if(!o.geometry.boundingBox)o.geometry.computeBoundingBox();pickBox.copy(o.geometry.boundingBox)}
+   pickBox.applyMatrix4(o.matrixWorld);if(o.isLine)pickBox.expandByScalar(.12);
+   const p=ray.ray.intersectBox(pickBox,pickPoint);
+   if(p)candidates.push({o,dist:pickBox.containsPoint(ray.ray.origin)?0:ray.ray.origin.distanceTo(p)});
+  }
+  for(const ch of o.children)collect(ch);
+ }
+ for(const o of hits)collect(o);
+ candidates.sort((a,b)=>a.dist-b.dist);
+ let nearest=Infinity,owner=null;ray.params.Line.threshold=.12;
+ for(const c of candidates){if(c.dist>nearest+.15)break;for(const hit of ray.intersectObject(c.o,false)){if(hit.distance>=nearest)continue;const named=namedOwner(hit.object);if(named){nearest=hit.distance;owner=named}}}
+ return owner;
+}
+function hideTip(){hoverOwner=null;tip.hidden=true;tip.style.display='none'}
+function showTip(owner,x,y){
+ if(!owner||!visibleInScene(owner)){hideTip();return}
+ hoverOwner=owner;tip.textContent=owner.userData.name;tip.hidden=false;tip.style.display='block';
+ const b=view.getBoundingClientRect(),pad=8;
+ tip.style.left=Math.max(pad,Math.min(x-b.left+13,b.width-tip.offsetWidth-pad))+'px';
+ tip.style.top=Math.max(pad,Math.min(y-b.top+14,b.height-tip.offsetHeight-pad))+'px';
+}
+function cancelHover(){clearTimeout(hoverTimer);hoverTimer=0;hoverPoint=null;hideTip()}
+r.domElement.addEventListener('pointermove',e=>{
+ if(e.pointerType==='touch'||down||e.buttons){cancelHover();return}
+ hoverPoint=[e.clientX,e.clientY];
+ if(!hoverTimer)hoverTimer=setTimeout(()=>{hoverTimer=0;if(!hoverPoint||down)return;const [x,y]=hoverPoint;showTip(pickEquipment(x,y),x,y)},90);
+});
+r.domElement.addEventListener('pointerleave',cancelHover);
+r.domElement.addEventListener('pointercancel',()=>{down=null;cancelHover()});
+r.domElement.addEventListener('pointerdown',e=>{cancelHover();down=[e.clientX,e.clientY]});
+r.domElement.addEventListener('pointerup',e=>{
+ const start=down;down=null;if(!start||Math.hypot(e.clientX-start[0],e.clientY-start[1])>5){hideTip();return}
+ const owner=pickEquipment(e.clientX,e.clientY);
+ if(owner){info.textContent=owner.userData.name+'\n'+(owner.userData.desc||'');showTip(owner,e.clientX,e.clientY)}else hideTip();
+});
+r.domElement.addEventListener('wheel',cancelHover,{passive:true});
+document.querySelector('#layers').addEventListener('change',cancelHover);
+document.querySelector('#isolate').addEventListener('change',cancelHover);
+window.addEventListener('blur',()=>{down=null;cancelHover()});
+new ResizeObserver(()=>{r.setSize(view.clientWidth,view.clientHeight);camera.aspect=view.clientWidth/view.clientHeight;camera.updateProjectionMatrix()}).observe(view);r.setAnimationLoop(()=>{controls.update();if(wellSync)wellSync();r.render(scene,camera);if(hoverOwner&&!visibleInScene(hoverOwner))hideTip()});init().catch(err=>status.textContent='載入未完成：'+err.message+'；可前往原始模型頁面檢視。');
 </script></body></html>
