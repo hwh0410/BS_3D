@@ -1,7 +1,7 @@
-<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>BS 3D V0.7.9｜全廠配置</title><style>*{box-sizing:border-box}body{margin:0;background:#e9eff0;color:#17383d;font:14px system-ui,sans-serif}header{background:#153b43;color:white;padding:14px 20px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}header a{color:white}main{display:flex;height:calc(100dvh - 64px)}#view{flex:1;position:relative;min-width:0}canvas{display:block}aside{width:320px;overflow:auto;background:white;padding:16px}button,input{font:inherit}button{border:1px solid #aabfc0;background:white;padding:7px 10px;border-radius:6px;cursor:pointer}#tools{position:absolute;left:10px;top:10px;display:flex;gap:6px;flex-wrap:wrap;z-index:2}#labels{position:absolute;inset:0;pointer-events:none;overflow:hidden}.tag{position:absolute;background:#17383ddd;color:white;font-size:11px;padding:4px 6px;border-radius:4px;transform:translate(-50%,-100%);white-space:nowrap}label{display:block;padding:4px}h2{font-size:16px}p{line-height:1.6}#info,#status{white-space:pre-line;background:#edf5f3;padding:10px;border-radius:6px;line-height:1.6}.warning{color:#8b491b}#hint{position:absolute;bottom:12px;left:12px;background:#ffffffdf;padding:7px;border-radius:6px}@media(max-width:720px){main{flex-direction:column;height:calc(100dvh - 90px)}aside{width:100%;height:40%}#view{min-height:60%}}</style><script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"}}</script></head><body><header><b>BS 3D · V0.7.9</b><span>苗栗貨櫃式厭氧沼氣場｜全廠配置草案</span><a href="source-viewer.html">設備與原始模型</a></header><main><div id="view"><div id="tools"><button id="iso">全區視角</button><button id="top">俯視</button><button id="focus">貨櫃特寫</button><button id="flip">貨櫃端向反轉</button></div><div id="labels"></div><div id="hint">拖曳旋轉 · 滾輪縮放 · 點選設備</div></div><aside><div id="status">讀取工程配置…</div><progress id="loadingProgress" max="50" value="0" style="width:100%"></progress><button id="retry" hidden>重新載入</button><p id="perf" style="font-size:12px;color:#52676b"></p><label><input id="isolate" type="checkbox">只看工程模型（避免地坪遮擋）</label><label><input id="wellCut" type="checkbox">地下沼液收集井透視（移開頂蓋）</label><h2>圖層</h2><div id="layers"></div><h2>設備資訊</h2><div id="info">點選場景物件。</div><h2>原始模型位置校核</h2><label>X 偏移 (m) <input id="dx" type="number" step=".1" value="0"></label><label>Z 偏移 (m) <input id="dz" type="number" step=".1" value="0"></label><label>Y 偏移 (m) <input id="dy" type="number" step=".1" value="0"></label><button id="reset">重設暫定對位</button><p>調整只在本次瀏覽有效，不修改原始模型。</p><h2>尚未校核</h2><p class="warning">粗黑界線依原圖保留，與貨櫃外框相交；非地籍或施工判定。黃色區塊為尚未建模設備，尺寸及部分編號待核。</p><p>地形等高線僅平面參考；未確認絕對標高及道路寬度。E-1005 電加熱器安裝位置待核，未另設落地模型。地下井管口方位及泵浦雙機排列為展示暫定。</p><a href="data/site-layout-v071.json">查看配置參數及來源說明</a></aside></main><script type="module">
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>BS 3D V0.7.10｜全廠配置</title><style>*{box-sizing:border-box}body{margin:0;background:#e9eff0;color:#17383d;font:14px system-ui,sans-serif}header{background:#153b43;color:white;padding:14px 20px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}header a{color:white}main{display:flex;height:calc(100dvh - 64px)}#view{flex:1;position:relative;min-width:0}canvas{display:block}aside{width:320px;overflow:auto;background:white;padding:16px}button,input{font:inherit}button{border:1px solid #aabfc0;background:white;padding:7px 10px;border-radius:6px;cursor:pointer}#tools{position:absolute;left:10px;top:10px;display:flex;gap:6px;flex-wrap:wrap;z-index:2}#labels{position:absolute;inset:0;pointer-events:none;overflow:hidden}.tag{position:absolute;background:#17383ddd;color:white;font-size:11px;padding:4px 6px;border-radius:4px;transform:translate(-50%,-100%);white-space:nowrap}label{display:block;padding:4px}h2{font-size:16px}p{line-height:1.6}#info,#status{white-space:pre-line;background:#edf5f3;padding:10px;border-radius:6px;line-height:1.6}.warning{color:#8b491b}#hint{position:absolute;bottom:12px;left:12px;background:#ffffffdf;padding:7px;border-radius:6px}@media(max-width:720px){main{flex-direction:column;height:calc(100dvh - 90px)}aside{width:100%;height:40%}#view{min-height:60%}}</style><script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"}}</script></head><body><header><b>BS 3D · V0.7.10</b><span>苗栗貨櫃式厭氧沼氣場｜全廠配置草案</span><a href="source-viewer.html">設備與原始模型</a></header><main><div id="view"><div id="tools"><button id="iso">全區視角</button><button id="top">俯視</button><button id="focus">貨櫃特寫</button><button id="flip">貨櫃端向反轉</button></div><div id="labels"></div><div id="hint">拖曳旋轉 · 滾輪縮放 · 點選設備</div></div><aside><div id="status">讀取工程配置…</div><progress id="loadingProgress" max="50" value="0" style="width:100%"></progress><button id="retry" hidden>重新載入</button><p id="perf" style="font-size:12px;color:#52676b"></p><label><input id="isolate" type="checkbox">只看工程模型（避免地坪遮擋）</label><label><input id="wellCut" type="checkbox">地下沼液收集井透視（移開頂蓋）</label><h2>圖層</h2><div id="layers"></div><h2>設備資訊</h2><div id="info">點選場景物件。</div><h2>原始模型位置校核</h2><label>X 偏移 (m) <input id="dx" type="number" step=".1" value="0"></label><label>Z 偏移 (m) <input id="dz" type="number" step=".1" value="0"></label><label>Y 偏移 (m) <input id="dy" type="number" step=".1" value="0"></label><button id="reset">重設暫定對位</button><p>調整只在本次瀏覽有效，不修改原始模型。</p><h2>尚未校核</h2><p class="warning">粗黑界線依原圖保留，與貨櫃外框相交；非地籍或施工判定。黃色區塊為尚未建模設備，尺寸及部分編號待核。</p><p>地形等高線僅平面參考；未確認絕對標高及道路寬度。E-1005 電加熱器安裝位置待核，未另設落地模型。地下井管口方位及泵浦雙機排列為展示暫定。</p><a href="data/site-layout-v071.json">查看配置參數及來源說明</a></aside></main><script type="module">
 import * as T from 'three';import {OrbitControls} from 'three/addons/controls/OrbitControls.js';import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';import {loadColor,disposeColor} from './src/load-color-v065.js';
 const view=document.querySelector('#view'),status=document.querySelector('#status'),info=document.querySelector('#info'),scene=new T.Scene();scene.background=new T.Color(0xe4edf0);const camera=new T.PerspectiveCamera(45,1,.1,500),r=new T.WebGLRenderer({antialias:true});r.setPixelRatio(Math.min(devicePixelRatio,2));view.prepend(r.domElement);const controls=new OrbitControls(camera,r.domElement);controls.enableDamping=true;scene.add(new T.HemisphereLight(0xffffff,0x84948c,2));const sun=new T.DirectionalLight(0xffffff,2.2);sun.position.set(-20,45,30);scene.add(sun);const tags=[],layers={},hits=[];let layout,assembly,shift,angle=0;function layer(id,title,visible=true){const g=new T.Group();g.visible=visible;scene.add(g);layers[id]=g;const l=document.createElement('label'),c=document.createElement('input');c.type='checkbox';c.checked=visible;c.onchange=()=>g.visible=c.checked;l.append(c,' '+title);document.querySelector('#layers').append(l);return g}function mesh(g,geo,c,x=0,y=0,z=0){const m=new T.Mesh(geo,new T.MeshStandardMaterial({color:c,roughness:.83,side:T.DoubleSide}));m.position.set(x,y,z);g.add(m);return m}function box(g,x,y,z,w,h,d,c){return mesh(g,new T.BoxGeometry(w,h,d),c,x,y,z)}function tag(g,name,desc,h){g.userData={name,desc};hits.push(g);const e=document.createElement('div');e.className='tag';e.textContent=name;document.querySelector('#labels').append(e);tags.push({g,e,h})}function xy(p){const [a,b]=layout.frame.origin_px,k=layout.frame.pixels_per_m*Math.SQRT2;return [(p[0]-a-(p[1]-b))/k,(p[0]-a+p[1]-b)/k]}function line(g,ps,color,y=.04,closed=false){const v=ps.map(p=>{const [x,z]=xy(p);return new T.Vector3(x,y,z)});if(closed)v.push(v[0]);g.add(new T.Line(new T.BufferGeometry().setFromPoints(v),new T.LineBasicMaterial({color})))}
-// V0.7.9: illustrative trapezoidal coated-steel ribs, no downloaded textures.
+// V0.7.10: illustrative trapezoidal coated-steel ribs, no downloaded textures.
 const roofMaterials=new Map();
 function roofMaterial(color){if(!roofMaterials.has(color)){roofMaterials.set(color,new T.MeshStandardMaterial({color,roughness:.56,metalness:.22,side:T.DoubleSide}))}return roofMaterials.get(color)}
 function roof(g,L,W,e,h,color=0x9c4338,wallL=L-.25,wallW=W-.25,gableColor=0xe7dfce){
@@ -22,7 +22,7 @@ function roof(g,L,W,e,h,color=0x9c4338,wallL=L-.25,wallW=W-.25,gableColor=0xe7df
  const cp=[-L/2,capEdge,-capW,L/2,capEdge,-capW,-L/2,h,0,L/2,h,0,-L/2,capEdge,capW,L/2,capEdge,capW];
  const cg=new T.BufferGeometry();cg.setAttribute('position',new T.Float32BufferAttribute(cp,3));cg.setIndex([0,1,2,1,3,2,2,3,4,3,5,4]);cg.computeVertexNormals();g.add(new T.Mesh(cg,mat));
 }
-// V0.7.9 building appearance: local materials, true wall openings, lightweight trim.
+// V0.7.10 building appearance: local materials, true wall openings, lightweight trim.
 let facadePalette;
 function buildingMaterials(){
  if(facadePalette)return facadePalette;
@@ -161,7 +161,7 @@ function buildBD1001(parent,p){
  pipe([.50,cy-R+.012,0],[.50,.28,0],.0167,.038);
  tag(g,'BD-1001 沼氣袋','紅泥柔性膜體｜直徑 2500 mm × 長度 10000 mm｜膜厚 1.8 mm｜進口 2″｜出口 2″｜洩水口 1″｜操作溫度 35°C｜外框承托式不鏽鋼架。袋體尺寸依提供規格；支架、接縫、管口位置及外框尺寸為展示假設，非施工圖。',3.3);
 }
-// V0.7.9 UL-50T: vendor nominal envelope; photo-derived accessories are illustrative.
+// V0.7.10 UL-50T: vendor nominal envelope; photo-derived accessories are illustrative.
 let ul50Prototype;
 function makeUL50(){
  const g=new T.Group(),R=1.55,H=6.963,top=7.456;
@@ -216,7 +216,7 @@ function buildUL50Tank(parent,p,i){
  g.rotation.y=0;
  tag(g,'沼液槽 '+(i+1)+'｜UL-50T','原圖儲水槽 '+(i+1)+'｜大鋒 UL-50T｜HDPE｜標稱 50 T｜外徑 3100 mm｜圓柱段 6963 mm｜頂部 493 mm｜槽體總高 7456 mm（不含護欄）｜各自黃色爬梯及護欄；護欄 1.10 m、護籠及管口位置為展示假設，正式設備編號待核。',8.35);
 }
-// V0.7.9 small cooling and water equipment; nominal dimensions in metres.
+// V0.7.10 small cooling and water equipment; nominal dimensions in metres.
 const smallTankSpecs={
  'D-1003':{name:'冷卻水塔',model:'LBC-25',h:1.8,d:1.38,desc:'冷卻能力 97,500 kcal/h｜循環水 325 L/min｜馬達 3/4 HP｜風量 225 m³/min｜風扇 Ø770 mm｜進出水 2½″、排水及溢流 1″、補水 ½″'},
  'D-1004':{name:'溫水箱',model:'2000ST',h:1.9,d:1.42,body:1.2,desc:'2000 L｜不鏽鋼｜桶身 1.20 m｜支架高 0.50 m｜厚 1.0 mm｜入水 ¾″×2、出水 2″、清潔口暫採 PDF 1″（照片標 1½″）；總高依指定 1.90 m'},
@@ -276,7 +276,7 @@ function buildSmallTank(parent,p,id){
  }
  tag(g,id+' '+sp.name,sp.model+'｜總高 '+H.toFixed(2)+' m｜外徑 '+sp.d.toFixed(2)+' m｜'+sp.desc+'；外觀細部、管口方向與接頭外伸為展示估讀，非施工尺寸。',H+.18);
 }
-// V0.7.9 rotating equipment: approximate envelopes, not vendor-certified dimensions.
+// V0.7.10 rotating equipment: approximate envelopes, not vendor-certified dimensions.
 const rotatingSpecs={
  'G-1002':{name:'溫水泵',model:'大川 CVS12-2',kind:'vertical',hp:3,dn:50,desc:'12 m³/h｜揚程25 m｜SUS304｜220 V'},
  'G-1003':{name:'沼液井泵',model:'川源 WGPS-31-40',kind:'volute',hp:1,dn:40,desc:'7.86 m³/h｜揚程16 m｜SCS14｜220 V'},
@@ -314,10 +314,10 @@ function makeRotating(sp){const M=rotatingMaterials(),g=new T.Group(),dn=sp.dn/2
 function buildRotating(parent,p){const key=p.id.replace(/[AB]$/,''),sp=rotatingSpecs[key];if(!sp)return false;const [x,z]=xy(p.center),blower=sp.kind==='blower',single=blower||key==='G-1008';const suffix=key==='B-1004'?(p.id.endsWith('A')?'A':'B'):p.id.endsWith('A')?'A':p.id.endsWith('B')?'B':'';
  const units=single?[suffix]:['A','B'];for(let i=0;i<units.length;i++){const g=makeRotating(sp);parent.add(g);g.position.set(x,0,z+(single?0:(i-.5)*.43));const id=key+units[i];tag(g,id+' '+sp.name,sp.model+'｜'+sp.hp+' HP｜'+sp.desc+(id==='B-1003A'?'｜變頻控制':'')+'｜外廓、配色、接管方向及雙機排列為展示估讀，非原廠尺寸圖。',sp.kind==='vertical'?.95:sp.kind==='blower'?.85:.53)}return true}
 function pose(p,t){camera.position.set(...p);controls.target.set(...t);controls.update()}document.querySelector('#iso').onclick=()=>pose([27,42,48],[-12,0,4]);document.querySelector('#top').onclick=()=>pose([-12,75,4.01],[-12,0,4]);document.querySelector('#focus').onclick=()=>pose([17,15,20],[0,1,0]);document.querySelector('#iso').click();
-// V0.7.9: retain original below-grade digestate pit and screw trough; remove duplicate imported slab.
-// V0.7.9 heat exchangers and buried FRP collection well.
-const wellCut={value:0},wellCenter={value:new T.Vector2()};
-let wellInterior=null,wellSurface=null;
+// V0.7.10: retain original below-grade digestate pit and screw trough; remove duplicate imported slab.
+// V0.7.10 heat exchangers and buried FRP collection well.
+const wellCut={value:0},wellPresent={value:0},wellCenter={value:new T.Vector2()};
+let wellInterior=null,wellSurface=null,wellSync=null;
 function buildExchanger(parent,p){
  const g=new T.Group();parent.add(g);const [x,z]=xy(p.center);g.position.set(x,0,z);
  const M=rotatingMaterials(),r=.185,y=.39,len=1.12,large=p.id==='E-1003',dn=large?.057:.045;
@@ -336,13 +336,13 @@ function buildExchanger(parent,p){
  tag(g,p.id+' '+(large?'沼液加熱器':'溫水冷卻器'),'迪肯特｜TEMA BEM｜SUS304｜殼側 ID 350 mm｜管長 800 mm｜管外徑 19 mm、厚1.6 mm、管間距25 mm｜換熱面積5.7 m²｜'+(large?'沼液及溫水管口各4″×2':'溫水3″×2、冷卻水2″×2')+'｜封頭、支座及完整外廓暫估，待 skeleton drawing 校正。',.85);
 }
 function buildCollectionWell(parent,p){
- const M=rotatingMaterials(),frp=new T.MeshStandardMaterial({color:0x879c85,roughness:.8,side:T.DoubleSide}),g=new T.Group(),inside=new T.Group();parent.add(g);const [x,z]=xy(p.center);g.position.set(x,0,z);g.add(inside);wellInterior=inside;wellSurface=g;wellCenter.value.set(x,z);
+ const M=rotatingMaterials(),frp=new T.MeshStandardMaterial({color:0x879c85,roughness:.8,side:T.DoubleSide}),g=new T.Group(),inside=new T.Group();parent.add(g);const [x,z]=xy(p.center);g.position.set(x,0,z);g.add(inside);wellInterior=inside;wellSurface=g;wellCenter.value.set(x,z);wellPresent.value=1;
  // ID 1400; wall thickness not supplied, display assumption 15 mm.
  const R=.70,t=.015,H=1.70;
  const wall=new T.Mesh(new T.CylinderGeometry(R+t,R+t,H,64,1,true),frp);wall.position.y=-H/2;inside.add(wall);
  roundPart(inside,[0,-H,0],[0,-H+t,0],R+t,R+t,frp,64);
  // Roof is visible by default, removable for the cutaway.
- const roof=new T.Mesh(new T.CylinderGeometry(R+t,R+t,.035,64),frp);roof.position.y=-.0175;g.add(roof);
+ const roof=new T.Mesh(new T.CylinderGeometry(R+t,R+t,.035,96),frp);roof.position.y=-.0175;g.add(roof);
  const cap=new T.Group();g.add(cap);
  roundPart(cap,[0,0,0],[0,.20,0],.25,.25,frp,48);flangePart(cap,[0,.20,0],[0,.225,0],.29,M.steel);
  // Top penetrations and below-grade suction tube.
@@ -350,8 +350,8 @@ function buildCollectionWell(parent,p){
  roundPart(inside,[.48,-.02,0],[.48,-1.55,0],.038,.038,M.steel);
  for(const [sign,y,rr] of [[-1,-.20,.09],[1,-.20,.09],[1,-.60,.03]]){roundPart(inside,[sign*R,y,0],[sign*(R+.15),y,0],rr,rr,M.steel);flangePart(inside,[sign*(R+.145),y,0],[sign*(R+.17),y,0],rr*1.4,M.bolt)}
  inside.visible=false;
- const cb=document.querySelector('#wellCut');cb.onchange=()=>{const on=cb.checked;wellCut.value=on?1:0;inside.visible=on;roof.visible=!on;cap.visible=!on};
- tag(g,'沼液收集井（編號待核）','條件圖標 D-1003，與現有冷卻水塔重複｜FRP｜ID 1400 mm｜高度1700 mm｜槽底 EL −1.700 m｜操作容積1.1 m³｜圖列2.5 m³｜操作35–45°C｜設計80°C｜人孔500A｜吸取管離底150 mm｜外壁厚度及管口方位暫估；平面位置沿用原待核符號。',.35);
+ const cb=document.querySelector('#wellCut');const sync=()=>{const visible=parent.visible;const on=visible&&cb.checked;wellPresent.value=visible?1:0;wellCut.value=on?1:0;inside.visible=on;roof.visible=!on;cap.visible=!on};cb.onchange=sync;wellSync=sync;
+ tag(g,'沼液收集井','無設備編號｜FRP｜ID 1400 mm｜高度1700 mm｜槽底 EL −1.700 m｜操作容積1.1 m³｜圖列2.5 m³｜操作35–45°C｜設計80°C｜人孔500A｜吸取管離底150 mm｜外壁厚度及管口方位暫估；平面位置沿用原待核符號。',.35);
 }
 const originalGradeY=-9.2216157913208;
 const groundSourceInverse=new T.Matrix4();
@@ -359,17 +359,17 @@ const groundCutEnabled={value:0};
 function applyGroundCut(material){
  material.onBeforeCompile=shader=>{
   shader.uniforms.groundSourceInverse={value:groundSourceInverse};
-  shader.uniforms.groundCutEnabled=groundCutEnabled;shader.uniforms.wellCut=wellCut;shader.uniforms.wellCenter=wellCenter;
+  shader.uniforms.groundCutEnabled=groundCutEnabled;shader.uniforms.wellCut=wellCut;shader.uniforms.wellPresent=wellPresent;shader.uniforms.wellCenter=wellCenter;
   shader.vertexShader='varying vec3 groundSourcePos;\nvarying vec3 groundWorldPos;\nuniform mat4 groundSourceInverse;\n'+shader.vertexShader;
   shader.vertexShader=shader.vertexShader.replace('#include <worldpos_vertex>','#include <worldpos_vertex>\ngroundWorldPos=(modelMatrix*vec4(transformed,1.0)).xyz;groundSourcePos=(groundSourceInverse*vec4(groundWorldPos,1.0)).xyz;');
-  shader.fragmentShader='varying vec3 groundSourcePos;\nvarying vec3 groundWorldPos;\nuniform float groundCutEnabled;\nuniform float wellCut;\nuniform vec2 wellCenter;\n'+shader.fragmentShader;
+  shader.fragmentShader='varying vec3 groundSourcePos;\nvarying vec3 groundWorldPos;\nuniform float groundCutEnabled;\nuniform float wellCut;\nuniform float wellPresent;\nuniform vec2 wellCenter;\n'+shader.fragmentShader;
   shader.fragmentShader=shader.fragmentShader.replace('#include <clipping_planes_fragment>',`#include <clipping_planes_fragment>
    vec2 q=groundSourcePos.xz;
    bool pit=q.x>-16.94281 && q.x<-13.84281 && q.y>34.4 && q.y<37.5;
    bool trough=q.x>-15.64281 && q.x<-15.14281 && q.y>22.8 && q.y<34.4;
-   if(groundCutEnabled>0.5 && (pit||trough)) discard;\n   if(wellCut>0.5 && distance(groundWorldPos.xz,wellCenter)<0.715) discard;`);
+   if(groundCutEnabled>0.5 && (pit||trough)) discard;\n   if(wellPresent>0.5 && distance(groundWorldPos.xz,wellCenter)<(wellCut>0.5?0.715:0.712)) discard;`);
  };
- material.customProgramCacheKey=()=> 'BS3D-ground-pit-well-v079';
+ material.customProgramCacheKey=()=> 'BS3D-ground-pit-well-v0710';
  material.needsUpdate=true;
 }
 function buildUnifiedGround(land){
@@ -413,5 +413,5 @@ async function loadModel(){if(!shift)return;const n=++loadGeneration;removeAssem
 retry.onclick=loadModel;
 document.querySelector('#isolate').onchange=e=>{for(const [id,g] of Object.entries(layers)){if(id==='model')continue;g.visible=!e.target.checked;const i=Object.keys(layers).indexOf(id);document.querySelector('#layers').children[i].firstChild.checked=g.visible}};
 const ray=new T.Raycaster(),mouse=new T.Vector2();let down;r.domElement.addEventListener('pointerdown',e=>down=[e.clientX,e.clientY]);r.domElement.addEventListener('pointerup',e=>{if(!down||Math.hypot(e.clientX-down[0],e.clientY-down[1])>5)return;const b=r.domElement.getBoundingClientRect();mouse.set((e.clientX-b.left)/b.width*2-1,1-(e.clientY-b.top)/b.height*2);ray.setFromCamera(mouse,camera);const h=ray.intersectObjects(hits,true).find(h=>{let o=h.object;while(o){if(!o.visible)return false;o=o.parent}return true});if(h){let o=h.object;while(o&&!o.userData.name)o=o.parent;if(o)info.textContent=o.userData.name+'\n'+o.userData.desc}});
-new ResizeObserver(()=>{r.setSize(view.clientWidth,view.clientHeight);camera.aspect=view.clientWidth/view.clientHeight;camera.updateProjectionMatrix()}).observe(view);r.setAnimationLoop(()=>{controls.update();r.render(scene,camera);for(const {g,e,h} of tags){const v=g.getWorldPosition(new T.Vector3());v.y+=h;v.project(camera);e.style.display=g.parent.visible&&Math.abs(v.x)<1&&Math.abs(v.y)<1&&Math.abs(v.z)<1?'block':'none';e.style.left=(v.x*.5+.5)*view.clientWidth+'px';e.style.top=(-v.y*.5+.5)*view.clientHeight+'px'}});init().catch(err=>status.textContent='載入未完成：'+err.message+'；可前往原始模型頁面檢視。');
+new ResizeObserver(()=>{r.setSize(view.clientWidth,view.clientHeight);camera.aspect=view.clientWidth/view.clientHeight;camera.updateProjectionMatrix()}).observe(view);r.setAnimationLoop(()=>{controls.update();if(wellSync)wellSync();r.render(scene,camera);for(const {g,e,h} of tags){const v=g.getWorldPosition(new T.Vector3());v.y+=h;v.project(camera);e.style.display=g.parent.visible&&Math.abs(v.x)<1&&Math.abs(v.y)<1&&Math.abs(v.z)<1?'block':'none';e.style.left=(v.x*.5+.5)*view.clientWidth+'px';e.style.top=(-v.y*.5+.5)*view.clientHeight+'px'}});init().catch(err=>status.textContent='載入未完成：'+err.message+'；可前往原始模型頁面檢視。');
 </script></body></html>
