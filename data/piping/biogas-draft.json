@@ -1,0 +1,461 @@
+{
+  "schema": 1,
+  "units": "m",
+  "frame": "Three.js X/Y/Z, Y up; original CAD coordinates for reactor anchors",
+  "status": "draft",
+  "systems": {
+    "BG": {
+      "name": "沼氣",
+      "color": "#d1a12b"
+    }
+  },
+  "ports": [
+    {
+      "id": "R1.BG",
+      "owner": "original",
+      "xyz": [
+        2.85,
+        -6.7,
+        25.219
+      ],
+      "status": "estimated",
+      "note": "依原始貨櫃外框暫定端面，非已辨識管口"
+    },
+    {
+      "id": "R2.BG",
+      "owner": "original",
+      "xyz": [
+        2.85,
+        -6.7,
+        27.719
+      ],
+      "status": "estimated",
+      "note": "依原始貨櫃外框暫定端面，非已辨識管口"
+    },
+    {
+      "id": "R3.BG",
+      "owner": "original",
+      "xyz": [
+        2.85,
+        -6.7,
+        30.219
+      ],
+      "status": "estimated",
+      "note": "依原始貨櫃外框暫定端面，非已辨識管口"
+    },
+    {
+      "id": "R4.BG",
+      "owner": "original",
+      "xyz": [
+        2.85,
+        -6.7,
+        32.719
+      ],
+      "status": "estimated",
+      "note": "依原始貨櫃外框暫定端面，非已辨識管口"
+    },
+    {
+      "id": "T1.BG",
+      "owner": "沼液槽 1｜UL-50T",
+      "xyz": [
+        0,
+        7.456,
+        0
+      ],
+      "status": "estimated",
+      "note": "槽頂氣相接點暫定，非確認管口"
+    },
+    {
+      "id": "T2.BG",
+      "owner": "沼液槽 2｜UL-50T",
+      "xyz": [
+        0,
+        7.456,
+        0
+      ],
+      "status": "estimated",
+      "note": "槽頂氣相接點暫定，非確認管口"
+    },
+    {
+      "id": "T3.BG",
+      "owner": "沼液槽 3｜UL-50T",
+      "xyz": [
+        0,
+        7.456,
+        0
+      ],
+      "status": "estimated",
+      "note": "槽頂氣相接點暫定，非確認管口"
+    },
+    {
+      "id": "WELL.BG",
+      "owner": "沼液收集井",
+      "xyz": [
+        -0.46,
+        0.16,
+        0
+      ],
+      "status": "estimated",
+      "note": "頂部預留管口，功能待核"
+    },
+    {
+      "id": "BAG.IN",
+      "owner": "BD-1001 沼氣袋",
+      "xyz": [
+        5.2425,
+        1.07,
+        0
+      ],
+      "status": "estimated",
+      "note": "模型端面已定位，進出口方向暫定"
+    },
+    {
+      "id": "BAG.OUT",
+      "owner": "BD-1001 沼氣袋",
+      "xyz": [
+        -5.2425,
+        1.07,
+        0
+      ],
+      "status": "estimated",
+      "note": "模型端面已定位，進出口方向暫定"
+    },
+    {
+      "id": "SCRUB.IN",
+      "owner": "沼氣脫硫洗滌系統",
+      "xyz": [
+        3,
+        1.45,
+        0.3
+      ],
+      "status": "estimated",
+      "note": "示意接點，供應商管口待核"
+    },
+    {
+      "id": "SCRUB.OUT",
+      "owner": "沼氣脫硫洗滌系統",
+      "xyz": [
+        4.4,
+        1.05,
+        0.3
+      ],
+      "status": "estimated",
+      "note": "示意接點，供應商管口待核"
+    },
+    {
+      "id": "GEN.IN",
+      "owner": "20 呎貨櫃式發電機組",
+      "xyz": [
+        0.7,
+        1.2,
+        0
+      ],
+      "status": "estimated",
+      "note": "箱體端面暫定，實際接口待核"
+    }
+  ],
+  "junctions": [
+    {
+      "id": "J.R1",
+      "xyz": [
+        -8.7,
+        5.9,
+        3.75
+      ]
+    },
+    {
+      "id": "J.R2",
+      "xyz": [
+        -8.7,
+        5.9,
+        1.25
+      ]
+    },
+    {
+      "id": "J.R3",
+      "xyz": [
+        -8.7,
+        5.9,
+        -1.25
+      ]
+    },
+    {
+      "id": "J.R4",
+      "xyz": [
+        -8.7,
+        5.9,
+        -3.75
+      ]
+    },
+    {
+      "id": "J.T1",
+      "xyz": [
+        -9.8,
+        8.5,
+        -4.44
+      ]
+    },
+    {
+      "id": "J.T2",
+      "xyz": [
+        -9.8,
+        8.5,
+        -0.18
+      ]
+    },
+    {
+      "id": "J.T3",
+      "xyz": [
+        -9.8,
+        8.5,
+        4.08
+      ]
+    },
+    {
+      "id": "J.MAIN",
+      "xyz": [
+        -8.7,
+        5.9,
+        -7
+      ]
+    },
+    {
+      "id": "J.WELL",
+      "xyz": [
+        -8.7,
+        5.9,
+        -0.04
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "id": "BG-REVIEW-R1",
+      "system": "BG",
+      "from": "R1.BG",
+      "to": "J.R1",
+      "via": [],
+      "dn": "2″",
+      "status": "draft",
+      "note": "原圖 BG-10101～103 對應待核"
+    },
+    {
+      "id": "BG-REVIEW-R2",
+      "system": "BG",
+      "from": "R2.BG",
+      "to": "J.R2",
+      "via": [],
+      "dn": "2″",
+      "status": "draft",
+      "note": "原圖 BG-10101～103 對應待核"
+    },
+    {
+      "id": "BG-REVIEW-R3",
+      "system": "BG",
+      "from": "R3.BG",
+      "to": "J.R3",
+      "via": [],
+      "dn": "2″",
+      "status": "draft",
+      "note": "原圖 BG-10101～103 對應待核"
+    },
+    {
+      "id": "BG-REVIEW-R4",
+      "system": "BG",
+      "from": "R4.BG",
+      "to": "J.R4",
+      "via": [],
+      "dn": "2″",
+      "status": "draft",
+      "note": "第四座為新版延伸，無正式線號"
+    },
+    {
+      "id": "BG-REVIEW-T1",
+      "system": "BG",
+      "from": "T1.BG",
+      "to": "J.T1",
+      "via": [],
+      "dn": "2″",
+      "status": "draft",
+      "note": "氣相平衡，方向非固定"
+    },
+    {
+      "id": "BG-REVIEW-T2",
+      "system": "BG",
+      "from": "T2.BG",
+      "to": "J.T2",
+      "via": [],
+      "dn": "2″",
+      "status": "draft",
+      "note": "氣相平衡，方向非固定"
+    },
+    {
+      "id": "BG-REVIEW-T3",
+      "system": "BG",
+      "from": "T3.BG",
+      "to": "J.T3",
+      "via": [],
+      "dn": "2″",
+      "status": "draft",
+      "note": "氣相平衡，方向非固定"
+    },
+    {
+      "id": "BG-REVIEW-H1",
+      "system": "BG",
+      "from": "J.R1",
+      "to": "J.R2",
+      "via": [],
+      "dn": "2″",
+      "status": "draft",
+      "note": ""
+    },
+    {
+      "id": "BG-REVIEW-H2",
+      "system": "BG",
+      "from": "J.R2",
+      "to": "J.WELL",
+      "via": [],
+      "dn": "2″",
+      "status": "draft",
+      "note": ""
+    },
+    {
+      "id": "BG-REVIEW-H3",
+      "system": "BG",
+      "from": "J.WELL",
+      "to": "J.R3",
+      "via": [],
+      "dn": "2″",
+      "status": "draft",
+      "note": ""
+    },
+    {
+      "id": "BG-REVIEW-H4",
+      "system": "BG",
+      "from": "J.R3",
+      "to": "J.R4",
+      "via": [],
+      "dn": "2″",
+      "status": "draft",
+      "note": ""
+    },
+    {
+      "id": "BG-REVIEW-H5",
+      "system": "BG",
+      "from": "J.R4",
+      "to": "J.MAIN",
+      "via": [],
+      "dn": "2″",
+      "status": "draft",
+      "note": ""
+    },
+    {
+      "id": "BG-REVIEW-T12",
+      "system": "BG",
+      "from": "J.T3",
+      "to": "J.T2",
+      "via": [],
+      "dn": "2″",
+      "status": "draft",
+      "note": ""
+    },
+    {
+      "id": "BG-REVIEW-T23",
+      "system": "BG",
+      "from": "J.T2",
+      "to": "J.T1",
+      "via": [],
+      "dn": "2″",
+      "status": "draft",
+      "note": ""
+    },
+    {
+      "id": "BG-10104",
+      "system": "BG",
+      "from": "J.T1",
+      "to": "J.MAIN",
+      "via": [
+        [
+          -9.8,
+          8.5,
+          -7
+        ],
+        [
+          -8.7,
+          8.5,
+          -7
+        ]
+      ],
+      "dn": "2″",
+      "status": "draft",
+      "note": "原圖氣相平衡線；路徑暫定"
+    },
+    {
+      "id": "BG-10111",
+      "system": "BG",
+      "from": "WELL.BG",
+      "to": "J.WELL",
+      "via": [],
+      "dn": "2″",
+      "status": "draft",
+      "note": "收集井氣相"
+    },
+    {
+      "id": "BG-REVIEW-BAG",
+      "system": "BG",
+      "from": "J.MAIN",
+      "to": "BAG.IN",
+      "via": [
+        [
+          -8.7,
+          5.9,
+          -19
+        ],
+        [
+          1.55,
+          5.9,
+          -19
+        ]
+      ],
+      "dn": "2″",
+      "status": "draft",
+      "note": "匯流至儲氣袋"
+    },
+    {
+      "id": "BG-10105",
+      "system": "BG",
+      "from": "BAG.OUT",
+      "to": "SCRUB.IN",
+      "via": [
+        [
+          -9,
+          4.8,
+          -20.82
+        ],
+        [
+          -18.8,
+          4.8,
+          -20.82
+        ],
+        [
+          -18.8,
+          4.8,
+          -14.28
+        ]
+      ],
+      "dn": "2″",
+      "status": "draft",
+      "note": "儲氣袋至脫硫，暫定走廊"
+    },
+    {
+      "id": "BG-10107",
+      "system": "BG",
+      "from": "SCRUB.OUT",
+      "to": "GEN.IN",
+      "via": [],
+      "dn": "2″",
+      "status": "draft",
+      "note": "脫硫至發電；接口及路徑暫定"
+    }
+  ]
+}
