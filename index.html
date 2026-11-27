@@ -1,7 +1,7 @@
-<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>BS 3D V0.8.0｜全廠配置</title><style>*{box-sizing:border-box}body{margin:0;background:#e9eff0;color:#17383d;font:14px system-ui,sans-serif}header{background:#153b43;color:white;padding:14px 20px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}header a{color:white}main{display:flex;height:calc(100dvh - 64px)}#view{flex:1;position:relative;min-width:0}canvas{display:block}aside{width:320px;overflow:auto;background:white;padding:16px}button,input{font:inherit}button{border:1px solid #aabfc0;background:white;padding:7px 10px;border-radius:6px;cursor:pointer}#tools{position:absolute;left:10px;top:10px;display:flex;gap:6px;flex-wrap:wrap;z-index:2}#labels{position:absolute;inset:0;pointer-events:none;overflow:hidden}.tag{position:absolute;background:#17383ddd;color:white;font-size:11px;padding:4px 6px;border-radius:4px;transform:translate(-50%,-100%);white-space:nowrap}label{display:block;padding:4px}h2{font-size:16px}p{line-height:1.6}#info,#status{white-space:pre-line;background:#edf5f3;padding:10px;border-radius:6px;line-height:1.6}.warning{color:#8b491b}#hint{position:absolute;bottom:12px;left:12px;background:#ffffffdf;padding:7px;border-radius:6px}@media(max-width:720px){main{flex-direction:column;height:calc(100dvh - 90px)}aside{width:100%;height:40%}#view{min-height:60%}}</style><script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"}}</script></head><body><header><b>BS 3D · V0.8.0</b><span>苗栗貨櫃式厭氧沼氣場｜全廠配置草案</span><a href="source-viewer.html">設備與原始模型</a></header><main><div id="view"><div id="tools"><button id="iso">全區視角</button><button id="top">俯視</button><button id="focus">貨櫃特寫</button><button id="flip">貨櫃端向反轉</button></div><div id="labels"></div><div id="hint">拖曳旋轉 · 滾輪縮放 · 點選設備</div></div><aside><div id="status">讀取工程配置…</div><progress id="loadingProgress" max="50" value="0" style="width:100%"></progress><button id="retry" hidden>重新載入</button><p id="perf" style="font-size:12px;color:#52676b"></p><label><input id="isolate" type="checkbox">只看工程模型（避免地坪遮擋）</label><label><input id="wellCut" type="checkbox">地下沼液收集井透視（移開頂蓋）</label><h2>圖層</h2><div id="layers"></div><h2>設備資訊</h2><div id="info">點選場景物件。</div><h2>原始模型位置校核</h2><label>X 偏移 (m) <input id="dx" type="number" step=".1" value="0"></label><label>Z 偏移 (m) <input id="dz" type="number" step=".1" value="0"></label><label>Y 偏移 (m) <input id="dy" type="number" step=".1" value="0"></label><button id="reset">重設暫定對位</button><p>調整只在本次瀏覽有效，不修改原始模型。</p><h2>尚未校核</h2><p class="warning">粗黑界線依原圖保留，與貨櫃外框相交；非地籍或施工判定。黃色區塊為尚未建模設備，尺寸及部分編號待核。</p><p>地形等高線僅平面參考；未確認絕對標高及道路寬度。E-1005 電加熱器安裝位置待核，未另設落地模型。地下井管口方位及泵浦雙機排列為展示暫定。</p><a href="data/site-layout-v071.json">查看配置參數及來源說明</a></aside></main><script type="module">
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>BS 3D V0.8.1｜全廠配置</title><style>*{box-sizing:border-box}body{margin:0;background:#e9eff0;color:#17383d;font:14px system-ui,sans-serif}header{background:#153b43;color:white;padding:14px 20px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}header a{color:white}main{display:flex;height:calc(100dvh - 64px)}#view{flex:1;position:relative;min-width:0}canvas{display:block}aside{width:320px;overflow:auto;background:white;padding:16px}button,input{font:inherit}button{border:1px solid #aabfc0;background:white;padding:7px 10px;border-radius:6px;cursor:pointer}#tools{position:absolute;left:10px;top:10px;display:flex;gap:6px;flex-wrap:wrap;z-index:2}#labels{position:absolute;inset:0;pointer-events:none;overflow:hidden}.tag{position:absolute;background:#17383ddd;color:white;font-size:11px;padding:4px 6px;border-radius:4px;transform:translate(-50%,-100%);white-space:nowrap}label{display:block;padding:4px}h2{font-size:16px}p{line-height:1.6}#info,#status{white-space:pre-line;background:#edf5f3;padding:10px;border-radius:6px;line-height:1.6}.warning{color:#8b491b}#hint{position:absolute;bottom:12px;left:12px;background:#ffffffdf;padding:7px;border-radius:6px}@media(max-width:720px){main{flex-direction:column;height:calc(100dvh - 90px)}aside{width:100%;height:40%}#view{min-height:60%}}</style><script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"}}</script></head><body><header><b>BS 3D · V0.8.1</b><span>苗栗貨櫃式厭氧沼氣場｜全廠配置草案</span><a href="source-viewer.html">設備與原始模型</a></header><main><div id="view"><div id="tools"><button id="iso">全區視角</button><button id="top">俯視</button><button id="focus">貨櫃特寫</button><button id="flip">貨櫃端向反轉</button></div><div id="labels"></div><div id="hint">拖曳旋轉 · 滾輪縮放 · 點選設備</div></div><aside><div id="status">讀取工程配置…</div><progress id="loadingProgress" max="50" value="0" style="width:100%"></progress><button id="retry" hidden>重新載入</button><p id="perf" style="font-size:12px;color:#52676b"></p><label><input id="isolate" type="checkbox">只看工程模型（避免地坪遮擋）</label><label><input id="wellCut" type="checkbox">地下沼液收集井透視（移開頂蓋）</label><h2>地形預覽</h2><label><input id="naturalTerrain" type="checkbox">原始自然地形（推估；設備可能被坡面遮住）</label><p>取消勾選即顯示整地後單一水平平台。高程基準暫取120.27 m，非完成面測量值；等高距未確認，遠坡為展示外插。</p><h2>圖層</h2><div id="layers"></div><h2>設備資訊</h2><div id="info">點選場景物件。</div><h2>原始模型位置校核</h2><label>X 偏移 (m) <input id="dx" type="number" step=".1" value="0"></label><label>Z 偏移 (m) <input id="dz" type="number" step=".1" value="0"></label><label>Y 偏移 (m) <input id="dy" type="number" step=".1" value="0"></label><button id="reset">重設暫定對位</button><p>調整只在本次瀏覽有效，不修改原始模型。</p><h2>尚未校核</h2><p class="warning">粗黑界線依原圖保留，與貨櫃外框相交；非地籍或施工判定。黃色區塊為尚未建模設備，尺寸及部分編號待核。</p><p>地形為五處測點與16條等高線的暫定重建；等高距、整地邊界、坡率及完成面絕對標高待核。E-1005 電加熱器安裝位置待核，未另設落地模型。地下井管口方位及泵浦雙機排列為展示暫定。</p><a href="data/site-layout-v071.json">查看配置參數及來源說明</a></aside></main><script type="module">
 import * as T from 'three';import {OrbitControls} from 'three/addons/controls/OrbitControls.js';import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';import {loadColor,disposeColor} from './src/load-color-v065.js';
 const view=document.querySelector('#view'),status=document.querySelector('#status'),info=document.querySelector('#info'),scene=new T.Scene();scene.background=new T.Color(0xe4edf0);const camera=new T.PerspectiveCamera(45,1,.1,500),r=new T.WebGLRenderer({antialias:true});r.setPixelRatio(Math.min(devicePixelRatio,2));view.prepend(r.domElement);const controls=new OrbitControls(camera,r.domElement);controls.enableDamping=true;scene.add(new T.HemisphereLight(0xffffff,0x84948c,2));const sun=new T.DirectionalLight(0xffffff,2.2);sun.position.set(-20,45,30);scene.add(sun);const tags=[],layers={},hits=[];let layout,assembly,shift,angle=0;function layer(id,title,visible=true){const g=new T.Group();g.visible=visible;scene.add(g);layers[id]=g;const l=document.createElement('label'),c=document.createElement('input');c.type='checkbox';c.checked=visible;c.onchange=()=>g.visible=c.checked;l.append(c,' '+title);document.querySelector('#layers').append(l);return g}function mesh(g,geo,c,x=0,y=0,z=0){const m=new T.Mesh(geo,new T.MeshStandardMaterial({color:c,roughness:.83,side:T.DoubleSide}));m.position.set(x,y,z);g.add(m);return m}function box(g,x,y,z,w,h,d,c){return mesh(g,new T.BoxGeometry(w,h,d),c,x,y,z)}function tag(g,name,desc,h){g.userData={name,desc};hits.push(g);const e=document.createElement('div');e.className='tag';e.textContent=name;document.querySelector('#labels').append(e);tags.push({g,e,h})}function xy(p){const [a,b]=layout.frame.origin_px,k=layout.frame.pixels_per_m*Math.SQRT2;return [(p[0]-a-(p[1]-b))/k,(p[0]-a+p[1]-b)/k]}function line(g,ps,color,y=.04,closed=false){const v=ps.map(p=>{const [x,z]=xy(p);return new T.Vector3(x,y,z)});if(closed)v.push(v[0]);g.add(new T.Line(new T.BufferGeometry().setFromPoints(v),new T.LineBasicMaterial({color})))}
-// V0.8.0: illustrative trapezoidal coated-steel ribs, no downloaded textures.
+// V0.8.1: illustrative trapezoidal coated-steel ribs, no downloaded textures.
 const roofMaterials=new Map();
 function roofMaterial(color){if(!roofMaterials.has(color)){roofMaterials.set(color,new T.MeshStandardMaterial({color,roughness:.56,metalness:.22,side:T.DoubleSide}))}return roofMaterials.get(color)}
 function roof(g,L,W,e,h,color=0x9c4338,wallL=L-.25,wallW=W-.25,gableColor=0xe7dfce){
@@ -22,7 +22,7 @@ function roof(g,L,W,e,h,color=0x9c4338,wallL=L-.25,wallW=W-.25,gableColor=0xe7df
  const cp=[-L/2,capEdge,-capW,L/2,capEdge,-capW,-L/2,h,0,L/2,h,0,-L/2,capEdge,capW,L/2,capEdge,capW];
  const cg=new T.BufferGeometry();cg.setAttribute('position',new T.Float32BufferAttribute(cp,3));cg.setIndex([0,1,2,1,3,2,2,3,4,3,5,4]);cg.computeVertexNormals();g.add(new T.Mesh(cg,mat));
 }
-// V0.8.0 building appearance: local materials, true wall openings, lightweight trim.
+// V0.8.1 building appearance: local materials, true wall openings, lightweight trim.
 let facadePalette;
 function buildingMaterials(){
  if(facadePalette)return facadePalette;
@@ -161,7 +161,7 @@ function buildBD1001(parent,p){
  pipe([.50,cy-R+.012,0],[.50,.28,0],.0167,.038);
  tag(g,'BD-1001 沼氣袋','紅泥柔性膜體｜直徑 2500 mm × 長度 10000 mm｜膜厚 1.8 mm｜進口 2″｜出口 2″｜洩水口 1″｜操作溫度 35°C｜外框承托式不鏽鋼架。袋體尺寸依提供規格；支架、接縫、管口位置及外框尺寸為展示假設，非施工圖。',3.3);
 }
-// V0.8.0 UL-50T: vendor nominal envelope; photo-derived accessories are illustrative.
+// V0.8.1 UL-50T: vendor nominal envelope; photo-derived accessories are illustrative.
 let ul50Prototype;
 function makeUL50(){
  const g=new T.Group(),R=1.55,H=6.963,top=7.456;
@@ -216,7 +216,7 @@ function buildUL50Tank(parent,p,i){
  g.rotation.y=0;
  tag(g,'沼液槽 '+(i+1)+'｜UL-50T','原圖儲水槽 '+(i+1)+'｜大鋒 UL-50T｜HDPE｜標稱 50 T｜外徑 3100 mm｜圓柱段 6963 mm｜頂部 493 mm｜槽體總高 7456 mm（不含護欄）｜各自黃色爬梯及護欄；護欄 1.10 m、護籠及管口位置為展示假設，正式設備編號待核。',8.35);
 }
-// V0.8.0 small cooling and water equipment; nominal dimensions in metres.
+// V0.8.1 small cooling and water equipment; nominal dimensions in metres.
 const smallTankSpecs={
  'D-1003':{name:'冷卻水塔',model:'LBC-25',h:1.8,d:1.38,desc:'冷卻能力 97,500 kcal/h｜循環水 325 L/min｜馬達 3/4 HP｜風量 225 m³/min｜風扇 Ø770 mm｜進出水 2½″、排水及溢流 1″、補水 ½″'},
  'D-1004':{name:'溫水箱',model:'2000ST',h:1.9,d:1.42,body:1.2,desc:'2000 L｜不鏽鋼｜桶身 1.20 m｜支架高 0.50 m｜厚 1.0 mm｜入水 ¾″×2、出水 2″、清潔口暫採 PDF 1″（照片標 1½″）；總高依指定 1.90 m'},
@@ -276,7 +276,7 @@ function buildSmallTank(parent,p,id){
  }
  tag(g,id+' '+sp.name,sp.model+'｜總高 '+H.toFixed(2)+' m｜外徑 '+sp.d.toFixed(2)+' m｜'+sp.desc+'；外觀細部、管口方向與接頭外伸為展示估讀，非施工尺寸。',H+.18);
 }
-// V0.8.0 rotating equipment: approximate envelopes, not vendor-certified dimensions.
+// V0.8.1 rotating equipment: approximate envelopes, not vendor-certified dimensions.
 const rotatingSpecs={
  'G-1002':{name:'溫水泵',model:'大川 CVS12-2',kind:'vertical',hp:3,dn:50,desc:'12 m³/h｜揚程25 m｜SUS304｜220 V'},
  'G-1003':{name:'沼液井泵',model:'川源 WGPS-31-40',kind:'volute',hp:1,dn:40,desc:'7.86 m³/h｜揚程16 m｜SCS14｜220 V'},
@@ -313,7 +313,7 @@ function makeRotating(sp){const M=rotatingMaterials(),g=new T.Group(),dn=sp.dn/2
 }
 function buildRotating(parent,p){const key=p.id.replace(/[AB]$/,''),sp=rotatingSpecs[key];if(!sp)return false;const [x,z]=xy(p.center),blower=sp.kind==='blower',single=blower||key==='G-1008';const suffix=key==='B-1004'?(p.id.endsWith('A')?'A':'B'):p.id.endsWith('A')?'A':p.id.endsWith('B')?'B':'';
  const units=single?[suffix]:['A','B'];for(let i=0;i<units.length;i++){const g=makeRotating(sp);parent.add(g);g.position.set(x,0,z+(single?0:(i-.5)*.43));const id=key+units[i];tag(g,id+' '+sp.name,sp.model+'｜'+sp.hp+' HP｜'+sp.desc+(id==='B-1003A'?'｜變頻控制':'')+'｜外廓、配色、接管方向及雙機排列為展示估讀，非原廠尺寸圖。',sp.kind==='vertical'?.95:sp.kind==='blower'?.85:.53)}return true}
-// V0.8.0: replace former generator room with open-sided shared canopy.
+// V0.8.1: replace former generator room with open-sided shared canopy.
 function buildPowerZone(b,canopyLayer,genLayer,scrubLayer){
  const [x,z]=xy(b.center),M=rotatingMaterials(),mat=(color,roughness=.7,metalness=.15)=>new T.MeshStandardMaterial({color,roughness,metalness}),steel=mat(0x9ba9ad,.55,.4),roofMat=mat(0x929fa5),blue=mat(0x26569a,.65,.22),dark=mat(0x26343b),pp=mat(0xadb5ad,.85,0),pipe=mat(0x929e97,.7,0),white=mat(0xe0e5e4),green=mat(0x456e50);
  const group=parent=>{const g=new T.Group();parent.add(g);g.position.set(x,0,z);return g};
@@ -377,8 +377,8 @@ function buildPowerZone(b,canopyLayer,genLayer,scrubLayer){
  tag(d,'沼氣脫硫洗滌系統','PP塔 Ø600 × H4300 mm，厚5 mm｜水槽1200 ×1200 ×900 mm｜附件配置3 ×2 m，土木基礎3 ×3 m｜附件最高4627 mm｜立式無軸封泵120 L/min×15 mH｜Air Sep氧氣機2套｜100 L PE加藥桶｜FRP風車2 HP｜200 mm PP風管｜參考2020年計畫書；附屬設備細部及現場適用性待核。',4.95);
 }
 function pose(p,t){camera.position.set(...p);controls.target.set(...t);controls.update()}document.querySelector('#iso').onclick=()=>pose([27,42,48],[-12,0,4]);document.querySelector('#top').onclick=()=>pose([-12,75,4.01],[-12,0,4]);document.querySelector('#focus').onclick=()=>pose([17,15,20],[0,1,0]);document.querySelector('#iso').click();
-// V0.8.0: retain original below-grade digestate pit and screw trough; remove duplicate imported slab.
-// V0.8.0 heat exchangers and buried FRP collection well.
+// V0.8.1: retain original below-grade digestate pit and screw trough; remove duplicate imported slab.
+// V0.8.1 heat exchangers and buried FRP collection well.
 const wellCut={value:0},wellPresent={value:0},wellCenter={value:new T.Vector2()};
 let wellInterior=null,wellSurface=null,wellSync=null;
 function buildExchanger(parent,p){
@@ -435,13 +435,76 @@ function applyGroundCut(material){
  material.customProgramCacheKey=()=> 'BS3D-ground-pit-well-v0710';
  material.needsUpdate=true;
 }
-function buildUnifiedGround(land){
- const coords=layout.boundary.map(p=>{const [x,z]=xy(p);return new T.Vector2(x,-z)});
- const site=new T.Shape(coords),outside=new T.Shape([new T.Vector2(-48,-41),new T.Vector2(32,-41),new T.Vector2(32,33),new T.Vector2(-48,33)]);
- outside.holes.push(new T.Path(coords.slice().reverse()));
- for(const [shape,color] of [[outside,0xa6b89b],[site,0xd2d1c5]]){
-  const m=mesh(land,new T.ShapeGeometry(shape),color,0,0,0);m.rotation.x=-Math.PI/2;applyGroundCut(m.material);
+// V0.8.1 terrain preview: PDF paths simplified at 2 pt, registered in existing crop coordinates.
+// No surveyed contour interval or finished-grade datum was supplied.
+const terrainContours=[
+[[1055,279.5],[996,302.4],[886,373.3],[852.7,391.9],[699.5,504.5],[680.9,521.7],[610.3,602.7],[565.9,669.7],[555.1,690.7]],
+[[1114,277.5],[1015.6,317.6],[919.1,380.7],[843.6,423.2],[751.1,490.6],[692.1,538.5],[619.3,622.2],[592.7,661.8],[576.2,691.3],[556.8,742.9],[551,831]],
+[[1175.1,279.2],[1052.1,325.4],[1028.3,336.9],[933.4,399.5],[834.5,454.4],[782.7,492.2],[697.2,561.6],[628.4,641.6],[611.5,667],[590.8,706.6],[577,740.8],[569.8,831.2]],
+[[1220,278.7],[1164.5,308.1],[1064,345.9],[1070.7,362.1],[1068.3,365.5],[972,433.5],[887.1,476.5],[872.3,470.3],[869.3,461.4],[838,478.3],[809.6,497.6],[702.3,584.7],[635.9,663.3],[597.4,737.8],[594.7,765.1],[607.9,768.1],[613.9,777.3],[613.2,818.6],[615.8,836.5]],
+[[1266,288.5],[1224.9,298.4],[1146.9,339.9],[1098.4,358.1],[1101.6,365.9],[1098.9,368.8],[1025.2,427.9],[1004.9,440.3],[900.7,490],[848.2,519.4],[731,612.2],[706.6,637.4],[669,683.6],[652,713.1],[642.8,735.5],[638.6,754.5],[638.2,784.7],[642,813.6],[648.6,835.1]],
+[[1269.9,308.6],[1229.9,318.3],[1185.5,339.5],[1132.1,370.1],[1040.5,446.5],[892.1,516.2],[740.2,637.3],[685.9,700.9],[668,735.7],[665.1,749.9],[665.4,773.4],[677.4,821.6],[678.1,842.2]],
+[[1281.8,328.3],[1234.9,338.1],[1195.7,356.7],[1157.9,378.9],[1132.7,404.9],[1077.5,450.8],[1052.9,467.6],[909.8,533.5],[897.8,537.1],[821.2,604.2],[761.3,651.7],[702.5,719.9],[693.5,736.2],[691.9,753.2],[697.4,775.8],[697.8,834.9]],
+[[1280.1,349.8],[1239.8,357.9],[1189.3,383.6],[1178.9,392.3],[1161.9,414.6],[1139,434.8],[1101.4,464.3],[1058.8,492.6],[1039.8,498.1],[927.1,551.1],[902.8,558.4],[788.9,658],[774.3,671.1],[717.5,739.1],[717.5,847.2]],
+[[1282.6,369.9],[1244.8,377.7],[1215.6,392],[1204.3,401.5],[1182.2,430.5],[1164,448.3],[1124.6,478.1],[1067.9,515.7],[1040.3,523.6],[944.4,568.7],[914.5,576.8],[890,594],[788.2,684.8],[737.7,745.2],[737.6,837.6]],
+[[1283.2,386.7],[1235,405.3],[1188.5,461.8],[1084,534.7],[1070.3,541.3],[1040.6,549.2],[961.7,586.4],[920.2,597.7],[895.9,614.2],[802,698.5],[757.9,751.3],[757.6,839]],
+[[1282.8,426.3],[1244.5,433.1],[1207.7,479.6],[1086.1,561.8],[1041.1,574.8],[979,604],[927,618.2],[909.8,627.8],[826.4,702.4],[781.2,752.5],[777.2,762],[777.7,831.5]],
+[[1242.6,576.4],[1232.8,565.7],[1211.4,514.8],[1206,508.7],[1201.9,508.4],[1193.2,512.9],[1148.4,549.8],[1095.3,584.9],[1041.5,600.3],[996.3,621.6],[943.9,635.3],[922.9,643.7],[902.6,658.6],[840.5,715.8],[801.1,758.7],[797.1,769.6],[797.8,834.6]],
+[[1153.2,614.4],[1136.5,585.5],[1104.3,608],[1041.9,625.9],[1013.6,639.2],[951.1,656.2],[928,665],[909.6,678.6],[849.3,734.1],[821.7,763.8],[817.2,775.6],[817.8,831.1]],
+[[1102.7,665.6],[1084.1,644.8],[1073.9,641],[1053.7,646.6],[1030.9,656.9],[933,686.3],[861.8,749.2],[842.1,769.8],[837.6,781.7],[837.9,832.7]],
+[[1091,731.1],[1083.9,733.9],[1079.9,732.8],[1031.7,686.8],[1022.4,682.2],[938,707.6],[861.2,777.9],[858.2,787.2],[858,836.4]],
+[[1012,756.2],[988.1,733.1],[978.3,727.6],[960.5,723.7],[943.1,729],[880.8,785.4],[878.2,833.9]]
+];
+const terrainSpots=[[782.13,444,120.27],[791.2,462.67,120.37],[852,465.6,122.02],[672.53,560.27,120.47],[729.33,616.27,123.70]];
+const terrainDatum=120.27; // provisional display reference, NOT measured finished grade
+const platformPolygon=[[-31,-18],[-17,-22],[-10,-23],[3,-23],[3,-17],[26,-17],[26,8.5],[7,8.5],[-7,8.5],[-10,6.8],[-15,6.8],[-17,4.5],[-30,4.5],[-32,0]];
+const terrainSequence=[120.27,120.42,121.22,122.02,123.70]; // interpreted trend, not contour labels
+for(let i=5;i<terrainContours.length;i++)terrainSequence.push(123.70+(i-4)*.85); // unverified preview extrapolation
+function polyDistance(x,z,poly){
+ let inside=false,min=Infinity;
+ for(let i=0,j=poly.length-1;i<poly.length;j=i++){
+ const a=poly[j],b=poly[i],dx=b[0]-a[0],dz=b[1]-a[1],t=Math.max(0,Math.min(1,((x-a[0])*dx+(z-a[1])*dz)/(dx*dx+dz*dz||1)));
+ min=Math.min(min,Math.hypot(x-a[0]-t*dx,z-a[1]-t*dz));
+ if((a[1]>z)!==(b[1]>z)&&x<(b[0]-a[0])*(z-a[1])/(b[1]-a[1])+a[0])inside=!inside;
+ }return inside?-min:min;
+}
+let terrainWorld=[],terrainNaturalMesh,terrainFinishedMesh,terrainReferenceGroup;
+function contourAtX(line,x){let best=null,nearest=Infinity;for(let i=1;i<line.length;i++){const a=line[i-1],b=line[i];if(x>=Math.min(a[0],b[0])&&x<=Math.max(a[0],b[0])&&Math.abs(b[0]-a[0])>1e-6){const z=a[1]+(x-a[0])/(b[0]-a[0])*(b[1]-a[1]);if(best===null||z<best)best=z}}if(best!==null)return best;for(const p of line){const d=Math.abs(x-p[0]);if(d<nearest){nearest=d;best=p[1]}}return best}
+function naturalHeight(x,z){
+ const zs=terrainWorld.map(a=>contourAtX(a,x));for(let i=1;i<zs.length;i++)zs[i]=Math.max(zs[i],zs[i-1]+.12);
+ if(z<=zs[0])return 0;
+ let h=terrainSequence.at(-1);for(let i=1;i<zs.length;i++){if(z<=zs[i]){const f=(z-zs[i-1])/(zs[i]-zs[i-1]);h=terrainSequence[i-1]+f*(terrainSequence[i]-terrainSequence[i-1]);break}}
+ // West/east ends outside survey coverage are feathered, not fabricated measured topography.
+ const fade=Math.max(0,Math.min(1,(x+37)/9,(32-x)/6));
+ return (h-terrainDatum)*fade;
+}
+function finishedHeight(x,z){const d=polyDistance(x,z,platformPolygon);if(d<=0)return 0;const h=naturalHeight(x,z),w=Math.min(1,d/Math.max(1.8,h*1.2));return h*w*w*(3-2*w)}
+function terrainMesh(height,graded){
+ const step=.5,nx=160,nz=148,positions=[],colors=[],idx=[];
+ const grass=new T.Color(0xa6b89b),concrete=new T.Color(0xd2d1c5),earth=new T.Color(0xb6a68c);
+ for(let j=0;j<=nz;j++)for(let i=0;i<=nx;i++){
+ const x=-48+i*step,z=-33+j*step,y=height(x,z),d=polyDistance(x,z,platformPolygon);
+ positions.push(x,y,z);const col=graded&&d<=0?concrete:graded&&naturalHeight(x,z)-y>.20?earth:grass;colors.push(col.r,col.g,col.b);
  }
+ for(let j=0;j<nz;j++)for(let i=0;i<nx;i++){const a=j*(nx+1)+i,b=a+nx+1;idx.push(a,b,a+1,a+1,b,b+1)}
+ const geo=new T.BufferGeometry();geo.setAttribute('position',new T.Float32BufferAttribute(positions,3));geo.setAttribute('color',new T.Float32BufferAttribute(colors,3));geo.setIndex(idx);geo.computeVertexNormals();
+ return new T.Mesh(geo,new T.MeshStandardMaterial({vertexColors:true,roughness:.94,side:T.DoubleSide}));
+}
+function buildUnifiedGround(land){
+ terrainWorld=terrainContours.map(a=>a.map(xy));
+ terrainFinishedMesh=terrainMesh(finishedHeight,true);applyGroundCut(terrainFinishedMesh.material);land.add(terrainFinishedMesh);
+ terrainNaturalMesh=terrainMesh(naturalHeight,false);terrainNaturalMesh.visible=false;land.add(terrainNaturalMesh);
+}
+function buildTerrainReference(cont,bounds){
+ terrainReferenceGroup=cont;
+ function draw(natural){
+ cont.clear();bounds.clear();const height=natural?naturalHeight:finishedHeight;
+ for(const ps of terrainWorld){const points=ps.map(([x,z])=>new T.Vector3(x,height(x,z)+.035,z));cont.add(new T.Line(new T.BufferGeometry().setFromPoints(points),new T.LineBasicMaterial({color:0x657c54})))}
+ for(const [px,py,h] of terrainSpots){const [x,z]=xy([px,py]);const o=new T.Mesh(new T.SphereGeometry(.095,12,8),new T.MeshBasicMaterial({color:0xb65738}));o.position.set(x,height(x,z)+.08,z);cont.add(o);o.userData.elevation=h}
+ const boundary=layout.boundary.map(xy);boundary.push(boundary[0]);const v=[];for(let j=1;j<boundary.length;j++){const a=boundary[j-1],b=boundary[j],n=Math.ceil(Math.hypot(b[0]-a[0],b[1]-a[1])/.4);for(let k=0;k<=n;k++){const t=k/n,x=a[0]+t*(b[0]-a[0]),z=a[1]+t*(b[1]-a[1]);v.push(new T.Vector3(x,height(x,z)+.08,z))}}bounds.add(new T.Line(new T.BufferGeometry().setFromPoints(v),new T.LineBasicMaterial({color:0x283d39})));
+ }
+ draw(false);
+ const cb=document.querySelector('#naturalTerrain');cb.onchange=()=>{terrainNaturalMesh.visible=cb.checked;terrainFinishedMesh.visible=!cb.checked;draw(cb.checked)};
 }
 function retainOriginalPit(part){
  // Assembly 50 is a single indexed mesh of 394 triangles. Its localized pit and trough
@@ -467,7 +530,7 @@ function retainOriginalPit(part){
  groundCutEnabled.value=1;
 }
 function position(){if(!shift||!assembly)return;const d=id=>Number(document.querySelector('#'+id).value)||0;shift.position.set(d('dx'),d('dy'),d('dz'));shift.rotation.y=angle;assembly.updateWorldMatrix(true,false);groundSourceInverse.copy(assembly.matrixWorld).invert()}for(const id of ['dx','dy','dz'])document.querySelector('#'+id).oninput=position;document.querySelector('#flip').onclick=()=>{angle=(angle+Math.PI)%(2*Math.PI);position()};document.querySelector('#reset').onclick=()=>{for(const id of ['dx','dy','dz'])document.querySelector('#'+id).value=0;angle=(layout?.reactor.rotation_y_deg??0)*Math.PI/180;position()};
-async function init(){const res=await fetch('data/site-layout-v071.json');if(!res.ok)throw Error('配置資料 '+res.status);layout=await res.json();angle=(layout.reactor.rotation_y_deg??0)*Math.PI/180;const land=layer('land','基地平面'),bounds=layer('boundary','原圖粗黑界線'),cont=layer('contours','等高線參考（無高程）'),buildings=layer('buildings','辦公室'),canopy=layer('powerCanopy','發電設備遮雨棚'),generator=layer('generator','20 呎貨櫃發電機組'),scrubber=layer('scrubber','沼氣脫硫系統'),tanks=layer('tanks','沼液槽 1–3（UL-50T）'),reserved=layer('reserved','未建模設備占位'),thermal=layer('thermal','殼管式熱交換器'),wellLayer=layer('well','地下沼液收集井'),rotating=layer('rotating','泵浦及鼓風機'),smallTanks=layer('smallTanks','冷卻及供熱設備 D-1003–1006'),gasbag=layer('gasbag','BD-1001 紅泥沼氣袋'),drains=layer('drains','排水溝參考'),model=layer('model','原始貨櫃與共用設備');buildUnifiedGround(land);line(bounds,layout.boundary,0x283d39,.07,true);layout.contours.forEach(p=>line(cont,p,0x718d74,.09));layout.buildings.forEach(b=>{if(b.name==='發電機房')buildPowerZone(b,canopy,generator,scrubber);else build(buildings,b)});layout.tanks.forEach((p,i)=>buildUL50Tank(tanks,p,i));for(const p of layout.placeholders){if(buildRotating(rotating,p))continue;if(p.id==='E-1002'||p.id==='E-1003'){buildExchanger(thermal,p);continue;}if(!p.id&&p.center[0]===652&&p.center[1]===413){buildCollectionWell(wellLayer,p);continue;}const smallId=p.id|| (p.name==='槽體（待核）'&&p.center[0]===401&&p.center[1]===304?'D-1003':'');if(smallTankSpecs[smallId]){buildSmallTank(smallTanks,p,smallId);continue;}if(p.id==='BD-1001'){buildBD1001(gasbag,p);continue;}const [x,z]=xy(p.center),g=new T.Group();reserved.add(g);g.position.set(x,.12,z);const geo=p.shape==='circle'?new T.CircleGeometry(p.diameter/2,32):new T.PlaneGeometry(p.length,p.width);const m=new T.Mesh(geo,new T.MeshBasicMaterial({color:0xd09a39,transparent:true,opacity:.55,side:T.DoubleSide,depthWrite:false}));m.rotation.x=-Math.PI/2;g.add(m);tag(g,(p.id?p.id+' ':'')+p.name,'未建模占位｜'+p.note,.25)}for(const d of layout.drains){line(drains,d.points,0x1888a1,.15);const mid=d.points[Math.floor(d.points.length/2)],[x,z]=xy(mid),g=new T.Group();drains.add(g);g.position.set(x,.15,z);tag(g,d.name,'排水溝線形參考；非施工定位。',.3)}shift=new T.Group();model.add(shift);const {source_center_xz:c,source_base_y:y}=layout.reactor;await loadModel();}
+async function init(){const res=await fetch('data/site-layout-v071.json');if(!res.ok)throw Error('配置資料 '+res.status);layout=await res.json();angle=(layout.reactor.rotation_y_deg??0)*Math.PI/180;const land=layer('land','基地平面'),bounds=layer('boundary','原圖粗黑界線'),cont=layer('contours','原圖等高線／高程點',false),buildings=layer('buildings','辦公室'),canopy=layer('powerCanopy','發電設備遮雨棚'),generator=layer('generator','20 呎貨櫃發電機組'),scrubber=layer('scrubber','沼氣脫硫系統'),tanks=layer('tanks','沼液槽 1–3（UL-50T）'),reserved=layer('reserved','未建模設備占位'),thermal=layer('thermal','殼管式熱交換器'),wellLayer=layer('well','地下沼液收集井'),rotating=layer('rotating','泵浦及鼓風機'),smallTanks=layer('smallTanks','冷卻及供熱設備 D-1003–1006'),gasbag=layer('gasbag','BD-1001 紅泥沼氣袋'),drains=layer('drains','排水溝參考'),model=layer('model','原始貨櫃與共用設備');buildUnifiedGround(land);buildTerrainReference(cont,bounds);layout.buildings.forEach(b=>{if(b.name==='發電機房')buildPowerZone(b,canopy,generator,scrubber);else build(buildings,b)});layout.tanks.forEach((p,i)=>buildUL50Tank(tanks,p,i));for(const p of layout.placeholders){if(buildRotating(rotating,p))continue;if(p.id==='E-1002'||p.id==='E-1003'){buildExchanger(thermal,p);continue;}if(!p.id&&p.center[0]===652&&p.center[1]===413){buildCollectionWell(wellLayer,p);continue;}const smallId=p.id|| (p.name==='槽體（待核）'&&p.center[0]===401&&p.center[1]===304?'D-1003':'');if(smallTankSpecs[smallId]){buildSmallTank(smallTanks,p,smallId);continue;}if(p.id==='BD-1001'){buildBD1001(gasbag,p);continue;}const [x,z]=xy(p.center),g=new T.Group();reserved.add(g);g.position.set(x,.12,z);const geo=p.shape==='circle'?new T.CircleGeometry(p.diameter/2,32):new T.PlaneGeometry(p.length,p.width);const m=new T.Mesh(geo,new T.MeshBasicMaterial({color:0xd09a39,transparent:true,opacity:.55,side:T.DoubleSide,depthWrite:false}));m.rotation.x=-Math.PI/2;g.add(m);tag(g,(p.id?p.id+' ':'')+p.name,'未建模占位｜'+p.note,.25)}for(const d of layout.drains){line(drains,d.points,0x1888a1,.15);const mid=d.points[Math.floor(d.points.length/2)],[x,z]=xy(mid),g=new T.Group();drains.add(g);g.position.set(x,.15,z);tag(g,d.name,'排水溝線形參考；非施工定位。',.3)}shift=new T.Group();model.add(shift);const {source_center_xz:c,source_base_y:y}=layout.reactor;await loadModel();}
 let loadGeneration=0;
 const progressBar=document.querySelector('#loadingProgress'),retry=document.querySelector('#retry'),perf=document.querySelector('#perf');
 function removeAssembly(){if(!assembly)return;const old=assembly;for(let i=hits.length-1;i>=0;i--){let o=hits[i];while(o&&o!==old)o=o.parent;if(o===old)hits.splice(i,1)}old.removeFromParent();disposeColor(old);assembly=null}
