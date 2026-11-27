@@ -1,11 +1,11 @@
-<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>BS 3D V0.7.2｜全廠配置</title><style>*{box-sizing:border-box}body{margin:0;background:#e9eff0;color:#17383d;font:14px system-ui,sans-serif}header{background:#153b43;color:white;padding:14px 20px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}header a{color:white}main{display:flex;height:calc(100dvh - 64px)}#view{flex:1;position:relative;min-width:0}canvas{display:block}aside{width:320px;overflow:auto;background:white;padding:16px}button,input{font:inherit}button{border:1px solid #aabfc0;background:white;padding:7px 10px;border-radius:6px;cursor:pointer}#tools{position:absolute;left:10px;top:10px;display:flex;gap:6px;flex-wrap:wrap;z-index:2}#labels{position:absolute;inset:0;pointer-events:none;overflow:hidden}.tag{position:absolute;background:#17383ddd;color:white;font-size:11px;padding:4px 6px;border-radius:4px;transform:translate(-50%,-100%);white-space:nowrap}label{display:block;padding:4px}h2{font-size:16px}p{line-height:1.6}#info,#status{white-space:pre-line;background:#edf5f3;padding:10px;border-radius:6px;line-height:1.6}.warning{color:#8b491b}#hint{position:absolute;bottom:12px;left:12px;background:#ffffffdf;padding:7px;border-radius:6px}@media(max-width:720px){main{flex-direction:column;height:calc(100dvh - 90px)}aside{width:100%;height:40%}#view{min-height:60%}}</style><script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"}}</script></head><body><header><b>BS 3D · V0.7.2</b><span>苗栗貨櫃式厭氧沼氣場｜全廠配置草案</span><a href="source-viewer.html">設備與原始模型</a></header><main><div id="view"><div id="tools"><button id="iso">全區視角</button><button id="top">俯視</button><button id="focus">貨櫃特寫</button><button id="flip">貨櫃端向反轉</button></div><div id="labels"></div><div id="hint">拖曳旋轉 · 滾輪縮放 · 點選設備</div></div><aside><div id="status">讀取工程配置…</div><progress id="loadingProgress" max="50" value="0" style="width:100%"></progress><button id="retry" hidden>重新載入</button><p id="perf" style="font-size:12px;color:#52676b"></p><label><input id="isolate" type="checkbox">只看工程模型（避免地坪遮擋）</label><h2>圖層</h2><div id="layers"></div><h2>設備資訊</h2><div id="info">點選場景物件。</div><h2>原始模型位置校核</h2><label>X 偏移 (m) <input id="dx" type="number" step=".1" value="0"></label><label>Z 偏移 (m) <input id="dz" type="number" step=".1" value="0"></label><label>Y 偏移 (m) <input id="dy" type="number" step=".1" value="0"></label><button id="reset">重設暫定對位</button><p>調整只在本次瀏覽有效，不修改原始模型。</p><h2>尚未校核</h2><p class="warning">粗黑界線依原圖保留，與貨櫃外框相交；非地籍或施工判定。黃色區塊為尚未建模設備，尺寸及部分編號待核。</p><p>地形等高線僅平面參考；未確認標高、道路寬度、槽體高度與設備定位，不填造數值。</p><a href="data/site-layout-v071.json">查看配置參數及來源說明</a></aside></main><script type="module">
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>BS 3D V0.7.3｜全廠配置</title><style>*{box-sizing:border-box}body{margin:0;background:#e9eff0;color:#17383d;font:14px system-ui,sans-serif}header{background:#153b43;color:white;padding:14px 20px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}header a{color:white}main{display:flex;height:calc(100dvh - 64px)}#view{flex:1;position:relative;min-width:0}canvas{display:block}aside{width:320px;overflow:auto;background:white;padding:16px}button,input{font:inherit}button{border:1px solid #aabfc0;background:white;padding:7px 10px;border-radius:6px;cursor:pointer}#tools{position:absolute;left:10px;top:10px;display:flex;gap:6px;flex-wrap:wrap;z-index:2}#labels{position:absolute;inset:0;pointer-events:none;overflow:hidden}.tag{position:absolute;background:#17383ddd;color:white;font-size:11px;padding:4px 6px;border-radius:4px;transform:translate(-50%,-100%);white-space:nowrap}label{display:block;padding:4px}h2{font-size:16px}p{line-height:1.6}#info,#status{white-space:pre-line;background:#edf5f3;padding:10px;border-radius:6px;line-height:1.6}.warning{color:#8b491b}#hint{position:absolute;bottom:12px;left:12px;background:#ffffffdf;padding:7px;border-radius:6px}@media(max-width:720px){main{flex-direction:column;height:calc(100dvh - 90px)}aside{width:100%;height:40%}#view{min-height:60%}}</style><script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"}}</script></head><body><header><b>BS 3D · V0.7.3</b><span>苗栗貨櫃式厭氧沼氣場｜全廠配置草案</span><a href="source-viewer.html">設備與原始模型</a></header><main><div id="view"><div id="tools"><button id="iso">全區視角</button><button id="top">俯視</button><button id="focus">貨櫃特寫</button><button id="flip">貨櫃端向反轉</button></div><div id="labels"></div><div id="hint">拖曳旋轉 · 滾輪縮放 · 點選設備</div></div><aside><div id="status">讀取工程配置…</div><progress id="loadingProgress" max="50" value="0" style="width:100%"></progress><button id="retry" hidden>重新載入</button><p id="perf" style="font-size:12px;color:#52676b"></p><label><input id="isolate" type="checkbox">只看工程模型（避免地坪遮擋）</label><h2>圖層</h2><div id="layers"></div><h2>設備資訊</h2><div id="info">點選場景物件。</div><h2>原始模型位置校核</h2><label>X 偏移 (m) <input id="dx" type="number" step=".1" value="0"></label><label>Z 偏移 (m) <input id="dz" type="number" step=".1" value="0"></label><label>Y 偏移 (m) <input id="dy" type="number" step=".1" value="0"></label><button id="reset">重設暫定對位</button><p>調整只在本次瀏覽有效，不修改原始模型。</p><h2>尚未校核</h2><p class="warning">粗黑界線依原圖保留，與貨櫃外框相交；非地籍或施工判定。黃色區塊為尚未建模設備，尺寸及部分編號待核。</p><p>地形等高線僅平面參考；未確認標高、道路寬度、槽體高度與設備定位，不填造數值。</p><a href="data/site-layout-v071.json">查看配置參數及來源說明</a></aside></main><script type="module">
 import * as T from 'three';import {OrbitControls} from 'three/addons/controls/OrbitControls.js';import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';import {loadColor,disposeColor} from './src/load-color-v065.js';
 const view=document.querySelector('#view'),status=document.querySelector('#status'),info=document.querySelector('#info'),scene=new T.Scene();scene.background=new T.Color(0xe4edf0);const camera=new T.PerspectiveCamera(45,1,.1,500),r=new T.WebGLRenderer({antialias:true});r.setPixelRatio(Math.min(devicePixelRatio,2));view.prepend(r.domElement);const controls=new OrbitControls(camera,r.domElement);controls.enableDamping=true;scene.add(new T.HemisphereLight(0xffffff,0x84948c,2));const sun=new T.DirectionalLight(0xffffff,2.2);sun.position.set(-20,45,30);scene.add(sun);const tags=[],layers={},hits=[];let layout,assembly,shift,angle=0;function layer(id,title,visible=true){const g=new T.Group();g.visible=visible;scene.add(g);layers[id]=g;const l=document.createElement('label'),c=document.createElement('input');c.type='checkbox';c.checked=visible;c.onchange=()=>g.visible=c.checked;l.append(c,' '+title);document.querySelector('#layers').append(l);return g}function mesh(g,geo,c,x=0,y=0,z=0){const m=new T.Mesh(geo,new T.MeshStandardMaterial({color:c,roughness:.83,side:T.DoubleSide}));m.position.set(x,y,z);g.add(m);return m}function box(g,x,y,z,w,h,d,c){return mesh(g,new T.BoxGeometry(w,h,d),c,x,y,z)}function tag(g,name,desc,h){g.userData={name,desc};hits.push(g);const e=document.createElement('div');e.className='tag';e.textContent=name;document.querySelector('#labels').append(e);tags.push({g,e,h})}function xy(p){const [a,b]=layout.frame.origin_px,k=layout.frame.pixels_per_m*Math.SQRT2;return [(p[0]-a-(p[1]-b))/k,(p[0]-a+p[1]-b)/k]}function line(g,ps,color,y=.04,closed=false){const v=ps.map(p=>{const [x,z]=xy(p);return new T.Vector3(x,y,z)});if(closed)v.push(v[0]);g.add(new T.Line(new T.BufferGeometry().setFromPoints(v),new T.LineBasicMaterial({color})))}
-// V0.7.2: illustrative trapezoidal coated-steel ribs, no downloaded textures.
+// V0.7.3: illustrative trapezoidal coated-steel ribs, no downloaded textures.
 const roofMaterials=new Map();
 function roofMaterial(color){if(!roofMaterials.has(color)){roofMaterials.set(color,new T.MeshStandardMaterial({color,roughness:.56,metalness:.22,side:T.DoubleSide}))}return roofMaterials.get(color)}
-function roof(g,L,W,e,h,color=0x9c4338,wallL=L-.25,wallW=W-.25){
- const mat=roofMaterial(color),wallMat=new T.MeshStandardMaterial({color:0xe7dfce,roughness:.83,side:T.DoubleSide});
+function roof(g,L,W,e,h,color=0x9c4338,wallL=L-.25,wallW=W-.25,gableColor=0xe7dfce){
+ const mat=roofMaterial(color),wallMat=new T.MeshStandardMaterial({color:gableColor,roughness:.83,side:T.DoubleSide});
  const p=[],idx=[],pitch=.20,rib=.024,rise=h-e;
  // Profile is repeated across ridge axis; ribs run downhill on both slopes.
  // The maximum ridge elevation remains h. Approximate rib dimensions only.
@@ -22,7 +22,95 @@ function roof(g,L,W,e,h,color=0x9c4338,wallL=L-.25,wallW=W-.25){
  const cp=[-L/2,capEdge,-capW,L/2,capEdge,-capW,-L/2,h,0,L/2,h,0,-L/2,capEdge,capW,L/2,capEdge,capW];
  const cg=new T.BufferGeometry();cg.setAttribute('position',new T.Float32BufferAttribute(cp,3));cg.setIndex([0,1,2,1,3,2,2,3,4,3,5,4]);cg.computeVertexNormals();g.add(new T.Mesh(cg,mat));
 }
-function build(g,b){const [x,z]=xy(b.center),a=new T.Group();g.add(a);a.position.set(x,0,z);const base=b.base_height??0,wall=b.eave-base;if(base>0)box(a,0,base/2,0,b.length,base,b.width,0xa7aaa5);box(a,0,base+wall/2,0,b.length,wall,b.width,0xe7dfce);const rg=new T.Group();a.add(rg);if(b.roof_ridge_axis==='width'){rg.rotation.y=Math.PI/2;roof(rg,b.width+.25,b.length+.25,b.eave,b.ridge,b.name.includes('發電機房')?0x73787d:0xa2463b,b.width,b.length)}else roof(rg,b.length+.25,b.width+.25,b.eave,b.ridge,b.name.includes('發電機房')?0x73787d:0xa2463b,b.length,b.width);for(let i=0;i<3;i++)box(a,-b.length*.32+i*b.length*.32,base+wall*.62,b.width/2+.04,1.1,.85,.08,0x4b6267);tag(a,b.name,'新版平立面圖：'+b.length+' × '+b.width+' m｜基座 '+base.toFixed(2)+' m｜牆高 '+wall.toFixed(2)+' m｜簷高 '+b.eave.toFixed(2)+' m｜屋脊 '+b.ridge.toFixed(2)+' m；彩色鋼板凸肋及色號為示意，門窗、鋼構與絕對高程待確認。',b.ridge+.2)}
+// V0.7.3 building appearance: local materials, true wall openings, lightweight trim.
+let facadePalette;
+function buildingMaterials(){
+ if(facadePalette)return facadePalette;
+ const c=document.createElement('canvas');c.width=c.height=128;const ctx=c.getContext('2d'),im=ctx.createImageData(128,128);let seed=731;
+ for(let i=0;i<im.data.length;i+=4){seed=(Math.imul(seed,1664525)+1013904223)>>>0;const n=118+(seed>>>26);im.data[i]=im.data[i+1]=im.data[i+2]=n;im.data[i+3]=255}ctx.putImageData(im,0,0);
+ const bump=new T.CanvasTexture(c);bump.wrapS=bump.wrapT=T.RepeatWrapping;bump.repeat.set(5,3);
+ const mat=(color,roughness=.8,metalness=0,extra={})=>new T.MeshStandardMaterial({color,roughness,metalness,...extra});
+ facadePalette={plaster:mat(0xe7dfce,.94,0,{bumpMap:bump,bumpScale:.018}),concrete:mat(0xa7aaa5,.96,0,{bumpMap:bump,bumpScale:.025}),skirt:mat(0x686e70,.88),frame:mat(0x424c51,.52,.28),glass:mat(0x83a7b6,.22,.16),glassLight:mat(0xabc6ce,.30,.1),door:mat(0x737e84,.66,.22),steel:mat(0x59636a,.62,.30),sheet:mat(0xd4d9dc,.68,.22),rib:mat(0xb5bfc4,.62,.25),dark:mat(0x323b40,.85),sill:mat(0xbfc2bc,.75),gutter:mat(0x626b70,.63,.25)};
+ return facadePalette;
+}
+function detailBox(g,x,y,z,w,h,d,m){if(Math.min(w,h,d)<=0)return;const o=new T.Mesh(new T.BoxGeometry(w,h,d),m);o.position.set(x,y,z);g.add(o);return o}
+function member(g,p,q,w,d,m){const v=new T.Vector3(...p),u=new T.Vector3(...q),delta=u.clone().sub(v);const o=new T.Mesh(new T.BoxGeometry(w,delta.length(),d),m);o.position.copy(v.add(u).multiplyScalar(.5));o.quaternion.setFromUnitVectors(new T.Vector3(0,1,0),delta.normalize());g.add(o);return o}
+function opening(x,y,w,h,type){return {x,y,w,h,type}}
+function facade(g,b,side,openings,industrial){
+ const M=buildingMaterials(),face=new T.Group();g.add(face);
+ const isEnd=side==='front'||side==='back',span=isEnd?b.width:b.length;
+ const rot={front:Math.PI/2,back:-Math.PI/2,left:0,right:Math.PI}[side];
+ face.rotation.y=rot;face.position.set(side==='front'?b.length/2:side==='back'?-b.length/2:0,0,side==='left'?b.width/2:side==='right'?-b.width/2:0);
+ const low=b.base_height,high=b.eave,half=span/2,depth=.16;
+ const holes=openings.map(o=>({...o,l:o.x-o.w/2,r:o.x+o.w/2,b:o.y,t:o.y+o.h}));
+ const xs=[-half,half,...holes.flatMap(o=>[o.l,o.r])].sort((a,b)=>a-b),ys=[low,high,...holes.flatMap(o=>[o.b,o.t])].sort((a,b)=>a-b);
+ const inside=(x,y)=>holes.some(o=>x>o.l&&x<o.r&&y>o.b&&y<o.t);
+ // Build wall strips around actual apertures; frames and glass sit inside the reveal.
+ for(let i=0;i<xs.length-1;i++)for(let j=0;j<ys.length-1;j++){const w=xs[i+1]-xs[i],h=ys[j+1]-ys[j],x=(xs[i+1]+xs[i])/2,y=(ys[j+1]+ys[j])/2;if(w>1e-5&&h>1e-5&&!inside(x,y))detailBox(face,x,y,-depth/2,w,h,depth,industrial?M.sheet:M.plaster)}
+ if(industrial){
+  const ribs=[];for(let x=-half+.12;x<half-.06;x+=.20){let cuts=[low,high];for(const o of holes)if(x>o.l-.035&&x<o.r+.035)cuts.push(o.b,o.t);cuts.sort((a,b)=>a-b);for(let j=0;j<cuts.length-1;j++){const y=(cuts[j]+cuts[j+1])/2,h=cuts[j+1]-cuts[j];if(h>.025&&!holes.some(o=>x>o.l-.035&&x<o.r+.035&&y>o.b&&y<o.t))ribs.push([x,y,h])}}
+  const inst=new T.InstancedMesh(new T.BoxGeometry(.035,1,.024),M.rib,ribs.length),dummy=new T.Object3D();ribs.forEach(([x,y,h],i)=>{dummy.position.set(x,y,.012);dummy.scale.set(1,h,1);dummy.updateMatrix();inst.setMatrixAt(i,dummy.matrix)});inst.instanceMatrix.needsUpdate=true;inst.computeBoundingSphere();face.add(inst);
+ }else{
+  // Dark splash-resistant plinth band, interrupted at doors.
+  const cuts=[-half,half,...holes.filter(o=>o.b<low+.33).flatMap(o=>[o.l,o.r])].sort((a,b)=>a-b);
+  for(let i=0;i<cuts.length-1;i++){const x=(cuts[i]+cuts[i+1])/2,w=cuts[i+1]-cuts[i];if(!inside(x,low+.1))detailBox(face,x,low+.16,.008,w,.32,.025,M.skirt)}
+ }
+ for(const o of holes){
+  const fw=.065,y=o.b+o.h/2,x=o.x,z=.025;
+  // Recessed backing, jambs and header.
+  detailBox(face,x,y,-.11,o.w,o.h,.035,o.type==='window'||o.type==='glazed'?M.glass:M.dark);
+  for(const sign of [-1,1]){detailBox(face,x+sign*(o.w-fw)/2,y,z,fw,o.h,.09,M.frame);detailBox(face,x,y+sign*(o.h-fw)/2,z,o.w,fw,.09,M.frame)}
+  if(o.type==='window'||o.type==='glazed'){
+   const count=o.type==='glazed'?3:2;
+   for(let k=1;k<count;k++)detailBox(face,o.l+k*o.w/count,y,-.025,fw,o.h-.10,.06,M.frame);
+   if(o.type==='glazed'){detailBox(face,x,o.b+o.h*.75,-.025,o.w-.10,fw,.06,M.frame);detailBox(face,x+.06,o.b+1.05,.075,.045,.18,.05,M.steel)}
+   else {detailBox(face,x,o.b-.035,.055,o.w+.16,.07,.19,M.sill);detailBox(face,x,o.t+.055,.04,o.w+.16,.08,.15,M.sill)}
+  }else if(o.type==='louver'){
+   for(let yy=o.b+.10;yy<o.t-.07;yy+=.095){const slat=detailBox(face,x,yy,.005,o.w-.13,.055,.095,M.steel);slat.rotation.x=-.45}
+  }else{
+   detailBox(face,x,y,-.035,o.w-.13,o.h-.13,.07,M.door);
+   if(o.type==='double'){detailBox(face,x,y,.008,.045,o.h-.12,.06,M.frame);for(const sign of [-1,1])detailBox(face,x+sign*.12,o.b+1.08,.06,.045,.20,.07,M.steel)}
+   else detailBox(face,o.r-.17,o.b+1.05,.065,.10,.04,.07,M.steel);
+  }
+ }
+ // Corner trim and upper flashing; no alteration of building envelope coordinates.
+ for(const sign of [-1,1])detailBox(face,sign*(half-.045),(low+high)/2,.025,.09,high-low,.07,industrial?M.steel:M.sill);
+ detailBox(face,0,high-.065,.025,span,.13,.09,industrial?M.steel:M.sill);
+ if(industrial){
+  // Visible framing echoing the drawing's X braces; cladding and doors are appearance proposals.
+  const bays=isEnd?1:2;
+  for(let k=0;k<=bays;k++)detailBox(face,-half+k*span/bays,(low+high)/2,.06,.12,high-low,.12,M.steel);
+  // Braces are shown on the long, unobstructed rear side only, to avoid crossing proposed openings.
+  if(side==='right'&&holes.length===0)for(let k=0;k<bays;k++){const x0=-half+k*span/bays+.09,x1=-half+(k+1)*span/bays-.09;member(face,[x0,low+.10,.095],[x1,high-.13,.095],.07,.07,M.steel);member(face,[x1,low+.10,.095],[x0,high-.13,.095],.07,.07,M.steel)}
+ }
+}
+function build(g,b){
+ const [x,z]=xy(b.center),a=new T.Group();g.add(a);a.position.set(x,0,z);
+ const M=buildingMaterials(),base=b.base_height??.2,wall=b.eave-base,industrial=b.name.includes('發電機房');
+ detailBox(a,0,base/2,0,b.length,base,b.width,M.concrete);
+ // Office opening counts follow the four drawing elevations; sizes and handedness are approximate.
+ if(!industrial){
+  facade(a,b,'front',[opening(-b.width*.27,1.32,1.65,1.32,'window'),opening(b.width*.24,base,4.25,3.15,'glazed')],false);
+  facade(a,b,'back',[opening(-b.width*.24,1.32,1.65,1.32,'window'),opening(b.width*.18,base,.88,2.10,'door'),opening(b.width*.35,1.48,.48,.48,'window')],false);
+  facade(a,b,'left',[-.30,0,.30].map(k=>opening(b.length*k,1.32,1.65,1.32,'window')),false);
+  facade(a,b,'right',[opening(-b.length*.36,1.48,.48,.48,'window'),opening(-b.length*.02,1.32,1.65,1.32,'window'),opening(b.length*.30,1.32,1.65,1.32,'window')],false);
+ }else{
+  facade(a,b,'front',[opening(0,base,Math.min(3.15,b.width-.65),3.15,'double')],true);
+  facade(a,b,'back',[opening(0,base,Math.min(1.05,b.width-.65),2.15,'door')],true);
+  facade(a,b,'left',[-.30,0,.30].map(k=>opening(b.length*k,2.05,1.65,1.15,'louver')),true);
+  facade(a,b,'right',[],true);
+ }
+ const rg=new T.Group();a.add(rg);const col=industrial?0x73787d:0xa2463b;
+ if(b.roof_ridge_axis==='width'){rg.rotation.y=Math.PI/2;roof(rg,b.width+.25,b.length+.25,b.eave,b.ridge,col,b.width,b.length,industrial?0xd4d9dc:0xe7dfce)}
+ else roof(rg,b.length+.25,b.width+.25,b.eave,b.ridge,col,b.length,b.width,industrial?0xd4d9dc:0xe7dfce);
+ // Gutters run along the eaves; downpipes follow the wall corners.
+ const ridgeZ=b.roof_ridge_axis==='width';
+ for(const sign of [-1,1]){
+  if(ridgeZ){const gx=sign*(b.length/2+.16);detailBox(a,gx,b.eave-.085,0,.13,.13,b.width+.25,M.gutter);member(a,[gx,b.eave-.15,b.width/2-.25],[sign*(b.length/2+.07),b.eave-.42,b.width/2-.25],.075,.075,M.gutter);member(a,[sign*(b.length/2+.07),b.eave-.42,b.width/2-.25],[sign*(b.length/2+.07),base+.12,b.width/2-.25],.075,.075,M.gutter)}
+  else{const gz=sign*(b.width/2+.16);detailBox(a,0,b.eave-.085,gz,b.length+.25,.13,.13,M.gutter);member(a,[b.length/2-.25,b.eave-.15,gz],[b.length/2-.25,b.eave-.42,sign*(b.width/2+.07)],.075,.075,M.gutter);member(a,[b.length/2-.25,b.eave-.42,sign*(b.width/2+.07)],[b.length/2-.25,base+.12,sign*(b.width/2+.07)],.075,.075,M.gutter)}
+ }
+ tag(a,b.name,'新版平立面圖：'+b.length+' × '+b.width+' m｜基座 '+base.toFixed(2)+' m｜牆高 '+wall.toFixed(2)+' m｜簷高 '+b.eave.toFixed(2)+' m｜屋脊 '+b.ridge.toFixed(2)+' m｜'+(industrial?'銀灰金屬牆、鋼構及百葉為外觀提案；門與百葉未經施工圖確認。':'米白粉光牆、門窗數量依立面；位置與尺寸估讀，端向待核。')+' 絕對高程待確認。',b.ridge+.2)
+}
 function pose(p,t){camera.position.set(...p);controls.target.set(...t);controls.update()}document.querySelector('#iso').onclick=()=>pose([27,42,48],[-12,0,4]);document.querySelector('#top').onclick=()=>pose([-12,75,4.01],[-12,0,4]);document.querySelector('#focus').onclick=()=>pose([17,15,20],[0,1,0]);document.querySelector('#iso').click();
 function position(){if(!shift||!assembly)return;const d=id=>Number(document.querySelector('#'+id).value)||0;shift.position.set(d('dx'),d('dy')+.04,d('dz'));shift.rotation.y=angle}for(const id of ['dx','dy','dz'])document.querySelector('#'+id).oninput=position;document.querySelector('#flip').onclick=()=>{angle=(angle+Math.PI)%(2*Math.PI);position()};document.querySelector('#reset').onclick=()=>{for(const id of ['dx','dy','dz'])document.querySelector('#'+id).value=0;angle=(layout?.reactor.rotation_y_deg??0)*Math.PI/180;position()};
 async function init(){const res=await fetch('data/site-layout-v071.json');if(!res.ok)throw Error('配置資料 '+res.status);layout=await res.json();angle=(layout.reactor.rotation_y_deg??0)*Math.PI/180;const land=layer('land','基地平面'),bounds=layer('boundary','原圖粗黑界線'),cont=layer('contours','等高線參考（無高程）'),buildings=layer('buildings','辦公室／發電機房'),tanks=layer('tanks','儲水槽足跡（高度未確認）'),reserved=layer('reserved','未建模設備占位'),drains=layer('drains','排水溝參考'),model=layer('model','原始貨櫃與共用設備');box(land,-8,-.18,4,80,.3,74,0xa6b89b);const shape=new T.Shape();layout.boundary.forEach((p,i)=>{const [x,z]=xy(p);i?shape.lineTo(x,-z):shape.moveTo(x,-z)});shape.closePath();const floor=mesh(land,new T.ShapeGeometry(shape),0xd2d1c5,0,.01,0);floor.rotation.x=-Math.PI/2;line(bounds,layout.boundary,0x283d39,.07,true);layout.contours.forEach(p=>line(cont,p,0x718d74,.09));layout.buildings.forEach(b=>build(buildings,b));layout.tanks.forEach((p,i)=>{const [x,z]=xy(p),g=new T.Group();tanks.add(g);g.position.set(x,0,z);const disc=mesh(g,new T.CylinderGeometry(layout.tank_diameter/2,layout.tank_diameter/2,.1,32),0x718e9b,0,.08,0);tag(g,'儲水槽 '+(i+1),'圖面標示儲水槽；外圈約3.2 m（圖面估測），高度及正式設備編號未確認。',.3)});for(const p of layout.placeholders){const [x,z]=xy(p.center),g=new T.Group();reserved.add(g);g.position.set(x,.12,z);const geo=p.shape==='circle'?new T.CircleGeometry(p.diameter/2,32):new T.PlaneGeometry(p.length,p.width);const m=new T.Mesh(geo,new T.MeshBasicMaterial({color:0xd09a39,transparent:true,opacity:.55,side:T.DoubleSide,depthWrite:false}));m.rotation.x=-Math.PI/2;g.add(m);tag(g,(p.id?p.id+' ':'')+p.name,'未建模占位｜'+p.note,.25)}for(const d of layout.drains){line(drains,d.points,0x1888a1,.15);const mid=d.points[Math.floor(d.points.length/2)],[x,z]=xy(mid),g=new T.Group();drains.add(g);g.position.set(x,.15,z);tag(g,d.name,'排水溝線形參考；非施工定位。',.3)}shift=new T.Group();model.add(shift);const {source_center_xz:c,source_base_y:y}=layout.reactor;await loadModel();}
